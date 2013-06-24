@@ -80,11 +80,20 @@ done
 #################################################################
 
 # [Chrome](https://chrome.google.com) web inspector css
-ln -s -f `pwd`/mac/apps/Chrome/Custom.css $APP_SUPPORT/Google/Chrome/Default/User\ StyleSheets/Custom.css
+CHROME_DIR=$APP_SUPPORT/Google/Chrome/Default
+if [ -d $CHROME_DIR ]; then
+  if [! -d $CHROME_DIR/User\ StyleSheets ]; then
+    mkdir $CHROME_DIR/User\ StyleSheets
+  fi
+  ln -s -f `pwd`/mac/apps/Chrome/Custom.css $CHROME_DIR/User\ StyleSheets/
+fi
 
 # [Marked](http://markedapp.com/)
-MARKED_DIR=$APP_SUPPORT/Marked/Custom\ CSS
+MARKED_DIR=$APP_SUPPORT/Marked
 if [ -d $MARKED_DIR ]; then
+  if [! -d $MARKED_DIR/Custom\ CSS ]; then
+    mkdir $MARKED_DIR/Custom\ CSS
+  fi
   cd $MARKED_DIR && curl -O https://raw.github.com/moritzz/Writer-CSS/master/iA\ Writer.css && cd -
   cd $MARKED_DIR && curl -O https://raw.github.com/jgoodall/markedapp-solarized/master/Marked-Solarized.css && cd -
 fi
