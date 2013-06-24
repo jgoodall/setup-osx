@@ -1,0 +1,17 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {closeResults = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            CLASS = TidyService; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {resultsArea = id; window = id; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

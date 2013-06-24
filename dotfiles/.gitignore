@@ -1,0 +1,40 @@
+# Mac
+.DS_Store
+._*
+
+# Win
+ehthumbs.db
+Icon?
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Editors
+*.sw[op]
+*~
+
+# node.js
+lib-cov
+*.seed
+*.log
+*.out
+*.pid
+*.gz
+pids
+logs
+results
+npm-debug.log
+node_modules/**/out
+node_modules/**/build
+
+# scala
+*.class
+*.log
+
+# sbt specific
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/

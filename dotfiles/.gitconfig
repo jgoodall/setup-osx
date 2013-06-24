@@ -1,0 +1,44 @@
+[alias]
+  h = help --web
+  last = log -1 HEAD
+  co = checkout
+  st = status -sb
+  ci = commit -m
+  ad = !git add . && git status
+  br = branch
+  rmd = !"git ls-files --deleted | while read FILE; do git rm \"$FILE\"; done"
+  l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
+	ll = log --stat --abbrev-commit
+  alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
+[color]
+  ui = auto
+[color "branch"]
+  current = yellow reverse
+  local = yellow
+  remote = green
+[color "diff"]
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+[color "status"]
+  added = yellow
+  changed = green
+  untracked = cyan
+[branch]
+  autosetupmerge = true
+[merge]
+  tool = opendiff
+[help]
+  format = web
+[web]
+  browser = open
+[credential]
+  helper = osxkeychain
+[pack]
+  windowMemory = 12m
+  packSizeLimit = 24m
+[push]
+	default = simple
+[url "https://"]
+	insteadOf = git://
