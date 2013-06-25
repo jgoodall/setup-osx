@@ -62,7 +62,8 @@ fi
 
 # install [rvm](https://rvm.io/)
 if [ ! -x $HOME/.rvm/bin/rvm ]; then
-  brew install autoconf automake libtool libyaml libxml2 libxslt libksba openssl
+  brew tap --repair homebrew/dupes
+  brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
   \curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
 fi
 
