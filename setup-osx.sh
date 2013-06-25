@@ -70,7 +70,7 @@ fi
 # Copy dot files/dirs from here into home directory
 #################################################################
 
-for i in `ls -Ad dotfiles/.*` ; do
+for i in `ls -Ad dotfiles/.[A-Za-z]*` ; do
   cp -f `pwd`/$i $HOME
 done
 
@@ -82,7 +82,7 @@ done
 # [Chrome](https://chrome.google.com) web inspector css
 CHROME_DIR=$APP_SUPPORT/Google/Chrome/Default
 if [ -d $CHROME_DIR ]; then
-  if [! -d $CHROME_DIR/User\ StyleSheets ]; then
+  if [ ! -d $CHROME_DIR/User\ StyleSheets ]; then
     mkdir $CHROME_DIR/User\ StyleSheets
   fi
   ln -s -f `pwd`/mac/apps/Chrome/Custom.css $CHROME_DIR/User\ StyleSheets/
@@ -91,7 +91,7 @@ fi
 # [Marked](http://markedapp.com/)
 MARKED_DIR=$APP_SUPPORT/Marked
 if [ -d $MARKED_DIR ]; then
-  if [! -d $MARKED_DIR/Custom\ CSS ]; then
+  if [ ! -d $MARKED_DIR/Custom\ CSS ]; then
     mkdir $MARKED_DIR/Custom\ CSS
   fi
   cd $MARKED_DIR && curl -O https://raw.github.com/moritzz/Writer-CSS/master/iA\ Writer.css && cd -
