@@ -146,7 +146,6 @@ cp -rf $CWD/mac/Scripts/* $LIB/Scripts/
 echo "Copying System Services..."
 cp -rf $CWD/mac/Services/* $LIB/Services/
 
-exit
 
 #################################################################
 # System Fonts
@@ -162,6 +161,17 @@ cd $LIB/Fonts
 \curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Daniel && unzip -qof Daniel && rm Daniel
 mv -f *.txt ~/.Trash/
 cd $CWD
+
+
+#################################################################
+# Binaries in bin will be copied to $HOME/bin
+#################################################################
+
+if [ ! -d $HOME/bin ]; then
+  mkdir $HOME/bin
+fi
+cp -f $CWD/bin/* $HOME/bin/
+
 
 #################################################################
 # Set up OS X defaults
