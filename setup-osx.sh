@@ -481,3 +481,5 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
   killall "$app" > /dev/null 2>&1
 done
+
+cd $CWD
