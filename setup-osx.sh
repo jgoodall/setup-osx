@@ -3,6 +3,8 @@
 LIB=$HOME/Library
 APP_SUPPORT=$LIB/Application\ Support
 
+# Current directory
+CWD=`pwd`
 
 # XCode command line tools should be installed first
 if [ ! -d /usr/llvm-gcc-4.2 ]; then
@@ -17,44 +19,53 @@ fi
 
 # install [brew](http://mxcl.github.com/homebrew/)
 if [ ! -x /usr/local/bin/brew ]; then
+  echo "Installing homebrew..."
   ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 fi
 
 # install [git](http://git-scm.com/)
 if [ ! -x /usr/local/bin/git ]; then
+  echo "Installing git..."
   brew install git
 fi
 
 # install [zsh](http://www.zsh.org/)
 if [ ! -x /usr/local/bin/zsh ]; then
+  echo "Installing zsh and setting to a default shell..."
   brew install zsh
   chsh -s /bin/zsh
 fi
 
 # install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 if [ ! -d $HOME/.oh-my-zsh ]; then
+  echo "Installing oh-my-zsh..."
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 fi
 
 # install [node](http://nodejs.org/)
 if [ ! -x /usr/local/bin/node ]; then
+  echo "Installing node.js..."
   brew install node
 fi
 
 if [ ! -h /usr/local/share/npm/bin/jshint ]; then
+  echo "Installing jshint..."
   npm install -g jshint
 fi
 
 if [ ! -h /usr/local/share/npm/bin/jsonlint ]; then
+  echo "Installing jsonlint..."
   npm install -g jsonlint
 fi
 
 if [ ! -h /usr/local/share/npm/bin/http-server ]; then
+  echo "Installing http-server..."
   npm install -g http-server
 fi
 
 # install python
 if [ ! -x /usr/local/bin/python ]; then
+  echo "Installing python and pip..."
   brew install python
   /usr/local/bin/pip install --upgrade distribute
   /usr/local/bin/pip install --upgrade pip
@@ -62,6 +73,7 @@ fi
 
 # install [rvm](https://rvm.io/)
 if [ ! -x $HOME/.rvm/bin/rvm ]; then
+  echo "Installing ruby and rvm..."
   brew tap --repair homebrew/dupes
   brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
   \curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
@@ -72,6 +84,7 @@ fi
 # Copy dot files/dirs from here into home directory
 #################################################################
 
+echo "Copying dot files..."
 for i in `ls -Ad dotfiles/.[A-Za-z]*` ; do
   cp -f `pwd`/$i $HOME
 done
@@ -82,22 +95,24 @@ done
 #################################################################
 
 # [Chrome](https://chrome.google.com) web inspector css
+echo "Copying Chrome custom styles..."
 CHROME_DIR=$APP_SUPPORT/Google/Chrome/Default
-if [ -d $CHROME_DIR ]; then
-  if [ ! -d $CHROME_DIR/User\ StyleSheets ]; then
-    mkdir $CHROME_DIR/User\ StyleSheets
+if [ -d "$CHROME_DIR" ]; then
+  if [ ! -d "$CHROME_DIR/User StyleSheets" ]; then
+    mkdir "$CHROME_DIR/User StyleSheets"
   fi
-  ln -s -f `pwd`/mac/apps/Chrome/Custom.css $CHROME_DIR/User\ StyleSheets/
+  cat $CWD/mac/apps/Chrome/Custom.css > $CHROME_DIR/User\ StyleSheets/Custom.css
 fi
 
 # [Marked](http://markedapp.com/)
 MARKED_DIR=$APP_SUPPORT/Marked
-if [ -d $MARKED_DIR ]; then
-  if [ ! -d $MARKED_DIR/Custom\ CSS ]; then
-    mkdir $MARKED_DIR/Custom\ CSS
+echo "Copying Marked.app custom styles..."
+if [ -d "$MARKED_DIR" ]; then
+  if [ ! -d "$MARKED_DIR/Custom CSS" ]; then
+    mkdir "$MARKED_DIR/Custom CSS"
   fi
-  cd $MARKED_DIR && curl -O https://raw.github.com/moritzz/Writer-CSS/master/iA\ Writer.css && cd -
-  cd $MARKED_DIR && curl -O https://raw.github.com/jgoodall/markedapp-solarized/master/Marked-Solarized.css && cd -
+  cd "$MARKED_DIR/Custom CSS" && curl --silent --location https://raw.github.com/moritzz/Writer-CSS/master/iA%20Writer.css --output iA\ Writer.css && cd $CWD
+  cd "$MARKED_DIR/Custom CSS" && curl --silent --location -O https://raw.github.com/jgoodall/markedapp-solarized/master/Marked-Solarized.css && cd $CWD
 fi
 
 #################################################################
@@ -105,50 +120,55 @@ fi
 #################################################################
 
 # colors
-cd $LIB/Colors && curl -O https://github.com/altercation/solarized/raw/master/apple-colorpalette-solarized/solarized.clr && cd -
+echo "Copying Color Palettes..."
+cd $LIB/Colors && curl -O --silent --location https://github.com/altercation/solarized/raw/master/apple-colorpalette-solarized/solarized.clr && cd $CWD
 
 # quicklook
+echo "Installing QuickLook plugins..."
 cd $LIB/QuickLook
 # [The BetterZip Quick Look Generator](http://macitbetter.com/BetterZip-Quick-Look-Generator/)
-curl -O --location http://macitbetter.com/BetterZipQL.zip && unzip BetterZipQL.zip
+curl -O --silent --location http://macitbetter.com/BetterZipQL.zip && unzip -qof BetterZipQL.zip && rm BetterZipQL.zip
 # [MultiMarkdown Quick Look with Style](https://github.com/ttscoff/MMD-QuickLook)
-curl -O --location http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip && unzip MultiMarkdown%20QuickLook.qlgenerator.zip
+curl -O --silent --location http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip && unzip -qof MultiMarkdown%20QuickLook.qlgenerator.zip && rm MultiMarkdown%20QuickLook.qlgenerator.zip
 # [QLStephen](http://whomwah.github.io/qlstephen/)
-curl -O --location https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip && unzip QLStephen.qlgenerator.zip
+curl -O --silent --location https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip && unzip -qof QLStephen.qlgenerator.zip && rm QLStephen.qlgenerator.zip
 # [QuickLookCSV](https://github.com/p2/quicklook-csv)
-hdiutil attach http://quicklook-csv.googlecode.com/files/QuickLookCSV.dmg && cp -r /Volumes/QuickLook\ CSV/QuickLookCSV.qlgenerator . && hdiutil detach /Volumes/QuickLook\ CSV
-mv *zip ~/.Trash ; mv *rtf ~/.Trash ; mv *rtfd ~/.Trash
+cd /tmp && curl -O --silent --location http://quicklook-csv.googlecode.com/files/QuickLookCSV.dmg && hdiutil attach -quiet QuickLookCSV.dmg && cp -rf /Volumes/QuickLook\ CSV/QuickLookCSV.qlgenerator . && hdiutil detach -quiet /Volumes/QuickLook\ CSV
+rm -rf *rtf *rtfd
 qlmanage -r
-cd -
-
-cp `pwd`/mac/QuickLook/* $LIB/
+cd $CWD
 
 # applescripts
-cp `pwd`/mac/Scripts/* $LIB/
+echo "Copying AppleScripts..."
+cp -rf $CWD/mac/Scripts/* $LIB/Scripts/
 
 # services
-cp `pwd`/mac/Services/* $LIB/
+echo "Copying System Services..."
+cp -rf $CWD/mac/Services/* $LIB/Services/
 
+exit
 
 #################################################################
 # System Fonts
 # Get fonts from http://www.fontsquirrel.com/fonts/
 #################################################################
 
+echo "Installing Fonts..."
 cd $LIB/Fonts
-\curl -LO http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip Anonymous-Pro && rm Anonymous-Pro
-\curl -LO http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip Inconsolata && rm Inconsolata
-\curl -LO http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip source-code-pro && rm source-code-pro
-\curl -LO http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip architects-daughter && rm architects-daughter
-\curl -LO http://www.fontsquirrel.com/fonts/download/Daniel && unzip Daniel && rm Daniel
-mv *.txt ~/.Trash/
-
+\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -qof Anonymous-Pro && rm Anonymous-Pro
+\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -qof Inconsolata && rm Inconsolata
+\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -qof source-code-pro && rm source-code-pro
+\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -qof architects-daughter && rm architects-daughter
+\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Daniel && unzip -qof Daniel && rm Daniel
+mv -f *.txt ~/.Trash/
+cd $CWD
 
 #################################################################
 # Set up OS X defaults
 # Many of these come from: http://mths.be/dotfiles
 #################################################################
 
+echo "Setting up system defaults..."
 
 # be quiet on login
 touch ~/.hushlogin
@@ -459,5 +479,5 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
   
 # Reset the affected apps
 for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
-	killall "$app" > /dev/null 2>&1
+  killall "$app" > /dev/null 2>&1
 done
