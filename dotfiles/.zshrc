@@ -136,8 +136,8 @@ fi
 
 # aliases for [homebrew](http://mxcl.github.com/homebrew/)
 if [ -x /usr/local/bin/brew ] ; then
-  alias brewfr="brew update; brew outdated"
-  alias brewup="brew update; brew upgrade"
+  alias brewfr="brew update && echo '\n==> Outdated Formulae' &&  brew outdated"
+  alias brewup="echo 'Upgrading brew formulae...\n' && brew update && brew upgrade"
 fi
 
 # alias for vagrant
