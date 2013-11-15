@@ -25,7 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew git git-extras github node sublime osx rvm bower)
+plugins=(brew git git-extras github node sublime osx rvm bower vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,6 +65,9 @@ export LESS_TERMCAP_md="$ORANGE"
 # ALIASES
 #
 ####################################### 
+
+# see http://bower.io/#usage
+alias bower='noglob bower' 
 
 ####################################### 
 # DIRECTORIES
