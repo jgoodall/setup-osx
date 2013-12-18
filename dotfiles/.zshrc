@@ -38,12 +38,6 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
-# FOR NODE.JS
-if [[ -x /usr/local/bin/node ]]; then
-  export NODE_PATH=/usr/local/share/npm/bin
-  export PATH=$NODE_PATH:$PATH
-fi
-
 # load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -126,8 +120,8 @@ fi
 
 # start up a web server on port 8000 in the current directory (or ./public)
 # [http-server](https://github.com/nodeapps/http-server)
-if [ -x /usr/local/share/npm/bin/http-server ] ; then
-  alias ws="/usr/local/share/npm/bin/http-server -p 8000"
+if [ -x /usr/local/bin/http-server ] ; then
+  alias ws="/usr/local/bin/http-server -p 8000"
 else
   alias ws="python -m SimpleHTTPServer 8000"
 fi
