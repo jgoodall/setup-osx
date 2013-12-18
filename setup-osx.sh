@@ -41,42 +41,42 @@ if [ ! -x /usr/local/bin/node ]; then
   brew install node
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/jshint ]; then
+if [ ! -d /usr/local/lib/node_modules/jshint ]; then
   echo "Installing jshint..."
   npm install -g jshint
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/jsonlint ]; then
+if [ ! -d /usr/local/lib/node_modules/jsonlint ]; then
   echo "Installing jsonlint..."
   npm install -g jsonlint
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/http-server ]; then
+if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   echo "Installing http-server..."
   npm install -g http-server
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/reveal-md ]; then
+if [ ! -d /usr/local/lib/node_modules/reveal-md ]; then
   echo "Installing reveal-md..."
   npm install -g reveal-md
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/bower ]; then
+if [ ! -d /usr/local/lib/node_modules/bower ]; then
   echo "Installing bower..."
   npm install -g bower
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/grunt-cli ]; then
+if [ ! -d /usr/local/lib/node_modules/grunt-cli ]; then
   echo "Installing grunt-cli..."
   npm install -g grunt-cli
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/yo ]; then
+if [ ! -d /usr/local/lib/node_modules/yo ]; then
   echo "Installing yo..."
   npm install -g yo
 fi
 
-if [ ! -d /usr/local/share/npm/lib/node_modules/karma ]; then
+if [ ! -d /usr/local/lib/node_modules/karma ]; then
   echo "Installing karma..."
   npm install -g karma
 fi
