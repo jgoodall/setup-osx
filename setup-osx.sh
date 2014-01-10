@@ -11,19 +11,19 @@ CWD=`pwd`
 #################################################################
 
 # install [brew](http://mxcl.github.com/homebrew/)
-if [ ! -x /usr/local/bin/brew ]; then
+if [ ! -e /usr/local/bin/brew ]; then
   echo "Installing homebrew..."
   ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 fi
 
 # install [git](http://git-scm.com/)
-if [ ! -x /usr/local/bin/git ]; then
+if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
   brew install git
 fi
 
 # install [zsh](http://www.zsh.org/)
-if [ ! -x /usr/local/bin/zsh ]; then
+if [ ! -e /usr/local/bin/zsh ]; then
   echo "Installing zsh and setting to a default shell..."
   brew install zsh
   chsh -s /bin/zsh
@@ -36,9 +36,15 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
 fi
 
 # install [node](http://nodejs.org/)
-if [ ! -x /usr/local/bin/node ]; then
+if [ ! -e /usr/local/bin/node ]; then
   echo "Installing node.js..."
   brew install node
+fi
+
+# install [go](http://golang.org/)
+if [ ! -e /usr/local/bin/go ]; then
+  echo "Installing go..."
+  brew install go
 fi
 
 if [ ! -d /usr/local/lib/node_modules/jshint ]; then
@@ -82,7 +88,7 @@ if [ ! -d /usr/local/lib/node_modules/karma ]; then
 fi
 
 # install python
-if [ ! -x /usr/local/bin/python ]; then
+if [ ! -e /usr/local/bin/python ]; then
   echo "Installing python and pip..."
   brew install python
   /usr/local/bin/pip install --upgrade distribute

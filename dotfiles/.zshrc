@@ -38,6 +38,9 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
+# for Go loaded via brew
+export PATH=$PATH:/usr/local/Cellar/go/1.2/libexec/bin
+
 # load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
