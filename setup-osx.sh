@@ -16,6 +16,12 @@ if [ ! -e /usr/local/bin/brew ]; then
   ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
 fi
 
+# install [brew-cask](https://github.com/phinze/homebrew-cask)
+if [ ! -d /opt/homebrew-cask/Caskroom ]; then
+  brew tap phinze/cask
+  brew install brew-cask
+fi
+
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
@@ -98,9 +104,11 @@ fi
 # install [rvm](https://rvm.io/)
 if [ ! -x $HOME/.rvm/bin/rvm ]; then
   echo "Installing ruby and rvm..."
-  brew tap --repair homebrew/dupes
-  brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
-  \curl -L https://get.rvm.io | bash -s stable --ruby=1.9.3
+  # brew tap --repair homebrew/dupes
+  # brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
+  \curl -sSL https://get.rvm.io | bash -s stable
+  source ~/.rvm/scripts/rvm
+  rvm install 2.0.0
 fi
 
 
@@ -149,18 +157,8 @@ cd $LIB/Colors && curl -O --silent --location https://github.com/altercation/sol
 
 # quicklook
 echo "Installing QuickLook plugins..."
-cd $LIB/QuickLook
-# [The BetterZip Quick Look Generator](http://macitbetter.com/BetterZip-Quick-Look-Generator/)
-curl -O --silent --location http://macitbetter.com/BetterZipQL.zip && unzip -qof BetterZipQL.zip && rm BetterZipQL.zip
-# [MultiMarkdown Quick Look with Style](https://github.com/ttscoff/MMD-QuickLook)
-curl -O --silent --location http://assets.brettterpstra.com/MultiMarkdown%20QuickLook.qlgenerator.zip && unzip -qof MultiMarkdown%20QuickLook.qlgenerator.zip && rm MultiMarkdown%20QuickLook.qlgenerator.zip
-# [QLStephen](http://whomwah.github.io/qlstephen/)
-curl -O --silent --location https://github.com/downloads/whomwah/qlstephen/QLStephen.qlgenerator.zip && unzip -qof QLStephen.qlgenerator.zip && rm QLStephen.qlgenerator.zip
-# [QuickLookCSV](https://github.com/p2/quicklook-csv)
-cd /tmp && curl -O --silent --location http://quicklook-csv.googlecode.com/files/QuickLookCSV.dmg && hdiutil attach -quiet QuickLookCSV.dmg && cp -rf /Volumes/QuickLook\ CSV/QuickLookCSV.qlgenerator . && hdiutil detach -quiet /Volumes/QuickLook\ CSV
-rm -rf *rtf *rtfd
+brew cask install qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql
 qlmanage -r
-cd $CWD
 
 # applescripts
 echo "Copying AppleScripts..."
