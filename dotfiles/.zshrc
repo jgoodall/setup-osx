@@ -37,6 +37,10 @@ source $ZSH/oh-my-zsh.sh
 #
 ####################################### 
 
+# for stupid Java
+export JAVA_HOME=`/usr/libexec/java_home`
+export PATH=$JAVA_HOME/bin:$PATH
+
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # for Go loaded via brew
