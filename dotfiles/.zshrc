@@ -153,7 +153,7 @@ fi
 
 # alias for vagrant vmware provider
 if [[ `vagrant plugin list | grep vagrant-vmware-fusion | cut -d' ' -f1` == "vagrant-vmware-fusion" ]]; then
-  alias vvmup="vagrant up --provider=vmware_fusion"
+  export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
 fi
 
 # set default text editor to sublime
