@@ -145,6 +145,14 @@ if [ -x /usr/local/bin/brew ] ; then
   alias brewup="echo 'Upgrading brew formulae...\n' && brew update && brew upgrade"
 fi
 
+# alias for CoreOS tools
+if [ -x ~/bin/fleetctl ] ; then
+  alias f="~/bin/fleetctl"
+fi
+if [ -x ~/bin/etcdctl ] ; then
+  alias e="~/bin/etcdctl"
+fi
+
 # alias for vagrant
 if [ -x /usr/bin/vagrant ] ; then
   alias v="vagrant"
