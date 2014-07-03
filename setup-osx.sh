@@ -41,6 +41,7 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   curl -L http://install.ohmyz.sh | sh
   cd ~/.oh-my-zsh/custom/plugins
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
+  git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
 # install [node](http://nodejs.org/)

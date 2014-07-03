@@ -25,7 +25,7 @@ COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(brew git git-extras github go node sublime osx bower redis-cli vagrant docker zsh-syntax-highlighting)
+plugins=(brew git git-extras github go node sublime osx bower redis-cli vagrant docker zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
