@@ -38,7 +38,9 @@ fi
 # install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 if [ ! -d $HOME/.oh-my-zsh ]; then
   echo "Installing oh-my-zsh..."
-  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  curl -L http://install.ohmyz.sh | sh
+  cd ~/.oh-my-zsh/custom/plugins
+  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
 fi
 
 # install [node](http://nodejs.org/)
