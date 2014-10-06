@@ -60,6 +60,9 @@ export MANPAGER="less -X"
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
+# Default Go path
+export GOPATH=~/dev/go
+
 
 ####################################### 
 #
