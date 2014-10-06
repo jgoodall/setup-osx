@@ -70,6 +70,9 @@ export LESS_TERMCAP_md="$ORANGE"
 # see http://bower.io/#usage
 alias bower='noglob bower' 
 
+# sort top by cpu instead of pid
+alias top='top -o cpu'
+
 ####################################### 
 # DIRECTORIES
 ####################################### 
