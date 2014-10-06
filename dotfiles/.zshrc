@@ -43,7 +43,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
 # for Go loaded via brew
-export PATH=$PATH:/usr/local/Cellar/go/1.2/libexec/bin
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
 
 # load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
