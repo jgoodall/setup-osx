@@ -42,9 +42,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
-# for Go loaded via brew
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
-
 # load RVM
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
@@ -62,6 +59,9 @@ export LESS_TERMCAP_md="$ORANGE"
 
 # Default Go path
 export GOPATH=~/dev/go
+
+# For Go binaries
+export PATH=$PATH:$GOPATH/bin
 
 
 ####################################### 
