@@ -18,8 +18,7 @@ fi
 
 # install [brew-cask](https://github.com/phinze/homebrew-cask)
 if [ ! -d /opt/homebrew-cask/Caskroom ]; then
-  brew tap phinze/cask
-  brew install brew-cask
+  brew install caskroom/cask/brew-cask
 fi
 
 # install [git](http://git-scm.com/)
@@ -112,6 +111,11 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   \curl -sSL https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
   rvm install 2.0.0
+fi
+
+# install vagrant
+if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
+  brew cask install vagrant virtualbox vagrant-manager
 fi
 
 
