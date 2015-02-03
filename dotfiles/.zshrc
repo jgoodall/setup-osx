@@ -76,6 +76,11 @@ alias bower='noglob bower'
 # sort top by cpu instead of pid
 alias top='top -o cpu'
 
+# go into the dir just created
+function mcd() { 
+  mkdir -p "$1" && cd "$1"; 
+}
+
 ####################################### 
 # DIRECTORIES
 ####################################### 
