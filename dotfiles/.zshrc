@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kennethreitz"
+# ZSH_THEME="kennethreitz"
 ZSH_THEME="ys"
 
 # Set to this to use case-sensitive completion
@@ -57,6 +57,9 @@ export MANPAGER="less -X"
 # Highlight section titles in manual pages
 export LESS_TERMCAP_md="$ORANGE"
 
+# GOROOT-based binaries
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+
 # Default Go path
 export GOPATH=~/dev/go
 
@@ -70,8 +73,8 @@ export PATH=$PATH:$GOPATH/bin
 #
 ####################################### 
 
-# see http://bower.io/#usage
-alias bower='noglob bower' 
+# [hub](https://hub.github.com/)
+alias git=hub
 
 # sort top by cpu instead of pid
 alias top='top -o cpu'
@@ -155,14 +158,6 @@ if [ -x /usr/local/bin/brew ] ; then
   alias brewup="echo 'Upgrading brew formulae...\n' && brew update && brew upgrade"
 fi
 
-# alias for CoreOS tools
-if [ -x ~/bin/fleetctl ] ; then
-  alias f="~/bin/fleetctl"
-fi
-if [ -x ~/bin/etcdctl ] ; then
-  alias e="~/bin/etcdctl"
-fi
-
 # alias for vagrant
 if [ -x /usr/bin/vagrant ] ; then
   alias v="vagrant"
@@ -180,3 +175,8 @@ else
   export EDITOR="vim"
 fi
 
+# added by travis gem
+[ -f /Users/ojg/.travis/travis.sh ] && source /Users/ojg/.travis/travis.sh
+
+# Jarvis - https://github.com/mallochine/jarvis4
+. /Users/ojg/.jarvis_config/jarvis
