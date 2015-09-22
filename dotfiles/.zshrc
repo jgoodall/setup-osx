@@ -61,15 +61,12 @@ qfc_complete_SHORTCUT="\C-d"
 
 # http://superuser.com/questions/836883/increasing-yosemite-maxfile-limit-for-application
 if [[ `uname -s` == 'Darwin' ]]; then
-  # ulimit -n 65536
+  ulimit -n 65536
   ulimit -u 2048
 fi
 
 # Colors!
 export TERM="xterm-256color"
-
-# used by [atlas](https://atlas.hashicorp.com/)
-export ATLAS_TOKEN="3CWZkaXJMKo6dxUM16DsLWZ9ZVX72J1RnmcU6hoxixNz4STXa1zAFX1BFhjWQ8fUqrY"
 
 # for stupid Java
 if [[ `uname -s` == 'Darwin' ]]; then
