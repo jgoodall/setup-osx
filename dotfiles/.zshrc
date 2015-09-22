@@ -1,44 +1,81 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="kennethreitz"
-ZSH_THEME="ys"
+source "${HOME}/.antigen-home/antigen.zsh"
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+antigen use oh-my-zsh
 
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+antigen theme ys
+# antigen theme agnoster
 
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
+# source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
+# antigen bundle arialdomartini/oh-my-git
+# antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
+# antigen theme https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git powerline
+
+antigen bundle z
+antigen bundle cp
+antigen bundle history
+antigen bundle command-not-found
+antigen bundle colored-man
+antigen bundle colorize
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
+antigen bundle rimraf/k
+
+antigen bundle git
+antigen bundle git-extras
+antigen bundle github
+
+antigen bundle go
+antigen bundle node
+antigen bundle npm
+
+antigen bundle vagrant
+antigen bundle docker
+
+if [[ `uname -s` == 'Darwin' ]]; then
+    antigen bundle brew
+    antigen bundle brew-cask
+    antigen bundle osx
+fi
+
+antigen bundle unixorn/autoupdate-antigen.zshplugin
+
+antigen apply
+
+CASE_SENSITIVE="false"
 COMPLETION_WAITING_DOTS="true"
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(brew git git-extras github go node sublime osx bower redis-cli vagrant docker zsh-syntax-highlighting zsh-history-substring-search)
-
-source $ZSH/oh-my-zsh.sh
-
-
-####################################### 
+#######################################
 #
 # CUSTOMIZATION
 #
-####################################### 
+#######################################
+
+# [Quick Command-line File Completion](https://github.com/pindexis/qfc)
+# shortcut - control - d
+qfc_complete_SHORTCUT="\C-d"
+[[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
+
+# http://superuser.com/questions/836883/increasing-yosemite-maxfile-limit-for-application
+if [[ `uname -s` == 'Darwin' ]]; then
+  # ulimit -n 65536
+  ulimit -u 2048
+fi
+
+# Colors!
+export TERM="xterm-256color"
+
+# used by [atlas](https://atlas.hashicorp.com/)
+export ATLAS_TOKEN="3CWZkaXJMKo6dxUM16DsLWZ9ZVX72J1RnmcU6hoxixNz4STXa1zAFX1BFhjWQ8fUqrY"
 
 # for stupid Java
-export JAVA_HOME=`/usr/libexec/java_home`
-export PATH=$JAVA_HOME/bin:$PATH
+if [[ `uname -s` == 'Darwin' ]]; then
+  export JAVA_HOME=`/usr/libexec/java_home`
+  export PATH=$JAVA_HOME/bin:$PATH
+fi
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
 
@@ -67,11 +104,11 @@ export GOPATH=~/dev/go
 export PATH=$PATH:$GOPATH/bin
 
 
-####################################### 
+#######################################
 #
 # ALIASES
 #
-####################################### 
+#######################################
 
 # [hub](https://hub.github.com/)
 alias git=hub
@@ -80,25 +117,25 @@ alias git=hub
 alias top='top -o cpu'
 
 # go into the dir just created
-function mcd() { 
-  mkdir -p "$1" && cd "$1"; 
+function mcd() {
+  mkdir -p "$1" && cd "$1";
 }
 
-####################################### 
+#######################################
 # LS
-####################################### 
+#######################################
 alias ls="ls -FG"
 alias ll="ls -FGhl"
 alias la="ls -FGa"
 
-####################################### 
-# MAC RELATED ALIASES 
-####################################### 
+#######################################
+# MAC RELATED ALIASES
+#######################################
 if [[ `uname` = 'Darwin' ]]; then
 
   # Mac 'open' command to open a file
   alias o="open"
-  
+
   # Quicklook
   alias ql="qlmanage -p "
 
@@ -127,9 +164,9 @@ if [[ `uname` = 'Darwin' ]]; then
 
 fi
 
-####################################### 
+#######################################
 # APPLICATION DEPENDENT ALIASES
-####################################### 
+#######################################
 
 # start up a web server on port 8000 in the current directory (or ./public)
 # [http-server](https://github.com/nodeapps/http-server)
@@ -161,8 +198,8 @@ if [ -x /usr/bin/vagrant ] ; then
 fi
 
 # set default text editor to sublime
-if [ -x "/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin/subl" ] ; then
-  export EDITOR="/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl"
+if [ -x "/usr/local/bin/atom" ] ; then
+  export EDITOR="/usr/local/bin/atom"
 else
   export EDITOR="vim"
 fi
@@ -170,5 +207,8 @@ fi
 # added by travis gem
 [ -f /Users/ojg/.travis/travis.sh ] && source /Users/ojg/.travis/travis.sh
 
-# Jarvis - https://github.com/mallochine/jarvis4
-. /Users/ojg/.jarvis_config/jarvis
+# [Jarvis](https://github.com/mallochine/jarvis4) - navigation
+[ -f /Users/ojg/.jarvis_config/jarvis ] && . /Users/ojg/.jarvis_config/jarvis
+
+# [bat](https://github.com/astaxie/bat) - curl for humans
+[ -f $HOME/dev/go/bin/bat ] && alias b="$HOME/dev/go/bin/bat"
