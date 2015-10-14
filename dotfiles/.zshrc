@@ -17,7 +17,7 @@ antigen bundle z
 antigen bundle cp
 antigen bundle history
 antigen bundle command-not-found
-antigen bundle colored-man
+antigen bundle colored-man-pages
 antigen bundle colorize
 
 antigen bundle zsh-users/zsh-syntax-highlighting
