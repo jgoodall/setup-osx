@@ -107,9 +107,6 @@ export PATH=$PATH:$GOPATH/bin
 #
 #######################################
 
-# [hub](https://hub.github.com/)
-alias git=hub
-
 # sort top by cpu instead of pid
 alias top='top -o cpu'
 
