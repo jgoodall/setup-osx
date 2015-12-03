@@ -61,7 +61,7 @@ qfc_complete_SHORTCUT="\C-d"
 
 # http://superuser.com/questions/836883/increasing-yosemite-maxfile-limit-for-application
 if [[ `uname -s` == 'Darwin' ]]; then
-  ulimit -n 65536
+  # ulimit -n 65536
   ulimit -u 2048
 fi
 
