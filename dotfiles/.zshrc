@@ -162,13 +162,13 @@ fi
 # APPLICATION DEPENDENT ALIASES
 #######################################
 
-# start up a web server on port 8000 in the current directory (or ./public)
-# [http-server](https://github.com/nodeapps/http-server)
-if [ -x /usr/local/bin/http-server ] ; then
-  alias ws="/usr/local/bin/http-server -p 8000"
-else
-  alias ws="python -m SimpleHTTPServer 8000"
+# start up a web server on port 8000 in the current directory.
+# [devd](https://github.com/cortesi/devd)
+if [ ! -x $GOPATH/bin/devd ] ; then
+  go get github.com/cortesi/devd/cmd/devd
 fi
+alias ws="devd -o -l -x ".git" -p 8000 ."
+# alias ws="python -m SimpleHTTPServer 8000"
 
 # parallel gzip - [pigz](http://www.zlib.net/pigz/)
 if [ -x /usr/local/bin/pigz ] ; then
