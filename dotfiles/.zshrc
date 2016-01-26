@@ -60,13 +60,16 @@ qfc_complete_SHORTCUT="\C-d"
 [[ -s "$HOME/.qfc/bin/qfc.sh" ]] && source "$HOME/.qfc/bin/qfc.sh"
 
 # http://superuser.com/questions/836883/increasing-yosemite-maxfile-limit-for-application
-if [[ `uname -s` == 'Darwin' ]]; then
+# if [[ `uname -s` == 'Darwin' ]]; then
   # ulimit -n 65536
-  ulimit -u 2048
-fi
+  # ulimit -u 2048
+# fi
 
 # Colors!
 export TERM="xterm-256color"
+
+# used by [atlas](https://atlas.hashicorp.com/)
+export ATLAS_TOKEN=""
 
 # for stupid Java
 if [[ `uname -s` == 'Darwin' ]]; then
@@ -201,3 +204,5 @@ export EDITOR="vim"
 
 # [bat](https://github.com/astaxie/bat) - curl for humans
 [ -f $HOME/dev/go/bin/bat ] && alias b="$HOME/dev/go/bin/bat"
+
+export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
