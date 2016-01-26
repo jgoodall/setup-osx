@@ -191,12 +191,7 @@ if [ -x /usr/bin/vagrant ] ; then
   fi
 fi
 
-# set default text editor to sublime
-if [ -x "/usr/local/bin/atom" ] ; then
-  export EDITOR="/usr/local/bin/atom"
-else
-  export EDITOR="vim"
-fi
+export EDITOR="vim"
 
 # added by travis gem
 [ -f /Users/ojg/.travis/travis.sh ] && source /Users/ojg/.travis/travis.sh
