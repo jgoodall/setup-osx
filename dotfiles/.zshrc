@@ -210,9 +210,6 @@ export EDITOR="vim"
 # added by travis gem
 [ -f /Users/ojg/.travis/travis.sh ] && source /Users/ojg/.travis/travis.sh
 
-# [Jarvis](https://github.com/mallochine/jarvis4) - navigation
-[ -f /Users/ojg/.jarvis_config/jarvis ] && . /Users/ojg/.jarvis_config/jarvis
-
 # [bat](https://github.com/astaxie/bat) - curl for humans
 [ -f $HOME/dev/go/bin/bat ] && alias b="$HOME/dev/go/bin/bat"
 
