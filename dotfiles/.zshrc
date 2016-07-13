@@ -54,6 +54,15 @@ COMPLETION_WAITING_DOTS="true"
 #
 #######################################
 
+# [marker](https://github.com/pindexis/marker) terminal command palette
+# Ctrl-space: search for commands that match the current written string in the command-line
+# Ctrl-k (or marker add): Bookmark a command
+# Ctrl-t: place the cursor at the next placeholder, identified by '{{anything}}'
+# marker remove
+if [ -d $HOME/.marker ]; then
+  [[ -s "$HOME/.local/share/marker/marker.sh" ]] && source "$HOME/.local/share/marker/marker.sh"
+fi
+
 # [Quick Command-line File Completion](https://github.com/pindexis/qfc)
 # shortcut - control - d
 qfc_complete_SHORTCUT="\C-d"
@@ -206,3 +215,6 @@ export EDITOR="vim"
 [ -f $HOME/dev/go/bin/bat ] && alias b="$HOME/dev/go/bin/bat"
 
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# [z](https://github.com/rupa/z) - jump around
+. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
