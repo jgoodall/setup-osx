@@ -39,6 +39,6 @@
   windowMemory = 12m
   packSizeLimit = 24m
 [push]
-	default = simple
+  default = simple
 [url "https://"]
-	insteadOf = git://
+  insteadOf = git://

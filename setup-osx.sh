@@ -132,7 +132,7 @@ fi
 
 echo "Copying dot files..."
 for i in `ls -Ad dotfiles/.[A-Za-z]*` ; do
-  cp -f `pwd`/$i $HOME
+  cp -f $i $HOME
 done
 
 
