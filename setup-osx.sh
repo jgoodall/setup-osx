@@ -58,6 +58,12 @@ if [ ! -e /usr/local/bin/fzf ]; then
   brew install fzf
 fi
 
+# install [trash](http://hasseg.org/trash/)
+if [ ! -e /usr/local/bin/trash ]; then
+  echo "Installing trash..."
+  brew install trash
+fi
+
 # install [go](http://golang.org/)
 if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
