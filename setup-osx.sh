@@ -52,6 +52,12 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
+# install [fzf](https://github.com/junegunn/fzf)
+if [ ! -e /usr/local/bin/fzf ]; then
+  echo "Installing fzf..."
+  brew install fzf
+fi
+
 # install [go](http://golang.org/)
 if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
