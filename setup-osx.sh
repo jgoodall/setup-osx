@@ -10,6 +10,14 @@ CWD=`pwd`
 # Install tools
 #################################################################
 
+# install [atom](https://atom.io/)
+if [ ! -e /Applications/Atom.app ]; then
+  echo "Installing atom..."
+  curl -sL -o atom.zip https://atom.io/download/mac
+  unzip atom.zip
+  mv Atom.app /Applications/
+fi
+
 # install [brew](http://mxcl.github.com/homebrew/)
 if [ ! -e /usr/local/bin/brew ]; then
   echo "Installing homebrew..."
@@ -43,21 +51,26 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
-# install [node](http://nodejs.org/)
-if [ ! -e /usr/local/bin/node ]; then
-  echo "Installing node.js..."
-  brew install node
-fi
-
 # install [go](http://golang.org/)
 if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
   brew install go
 fi
+mkdir -p $HOME/dev/go
+export GOPATH=$HOME/dev/go
+if [ ! -x $GOPATH/bin/devd ]; then
+  echo "Installing devd webserver..."
+  go get github.com/cortesi/devd/cmd/devd
+fi
+if [ ! -x $GOPATH/bin/govendor ]; then
+  echo "Installing govendor..."
+  go get github.com/kardianos/govendor
+fi
 
-if [ ! -d /usr/local/lib/node_modules/jshint ]; then
-  echo "Installing jshint..."
-  npm install -g jshint
+# install [node](http://nodejs.org/)
+if [ ! -e /usr/local/bin/node ]; then
+  echo "Installing node.js..."
+  brew install node
 fi
 
 if [ ! -d /usr/local/lib/node_modules/jsonlint ]; then
@@ -68,31 +81,6 @@ fi
 if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   echo "Installing http-server..."
   npm install -g http-server
-fi
-
-if [ ! -d /usr/local/lib/node_modules/reveal-md ]; then
-  echo "Installing reveal-md..."
-  npm install -g reveal-md
-fi
-
-if [ ! -d /usr/local/lib/node_modules/bower ]; then
-  echo "Installing bower..."
-  npm install -g bower
-fi
-
-if [ ! -d /usr/local/lib/node_modules/grunt-cli ]; then
-  echo "Installing grunt-cli..."
-  npm install -g grunt-cli
-fi
-
-if [ ! -d /usr/local/lib/node_modules/yo ]; then
-  echo "Installing yo..."
-  npm install -g yo
-fi
-
-if [ ! -d /usr/local/lib/node_modules/karma ]; then
-  echo "Installing karma..."
-  npm install -g karma
 fi
 
 # install python
@@ -110,7 +98,7 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   # brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
   \curl -sSL https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
-  rvm install 2.0.0
+  rvm install ruby-2.1-head
 fi
 
 # install vagrant
@@ -224,7 +212,7 @@ defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreS
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-  
+
 # Increase window resize speed for Cocoa applications
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
@@ -296,7 +284,7 @@ defaults write com.apple.screencapture disable-shadow -bool true
 # Enable subpixel font rendering on non-Apple LCDs
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
-  
+
 #################################################################
 # Finder                                                        #
 #################################################################
@@ -327,7 +315,7 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-  
+
 # Automatically open a new Finder window when a volume is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
@@ -339,7 +327,7 @@ defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 # Show the ~/Library folder
 chflags nohidden ~/Library
-  
+
 
 #################################################################
 # Dock                                                          #
@@ -391,7 +379,7 @@ defaults write com.apple.dock wvous-tr-modifier -int 0
 defaults write com.apple.dock wvous-bl-corner -int 5
 defaults write com.apple.dock wvous-bl-modifier -int 0
 
-  
+
 #################################################################
 # Safari/webkit                                                 #
 #################################################################
@@ -419,7 +407,7 @@ defaults write com.apple.Safari com.apple.Safari.ContentPageGroupIdentifier.WebK
 # Add a context menu item for showing the Web Inspector in web views
 defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
-  
+
 #################################################################
 # Dashboard                                                     #
 #################################################################
@@ -446,7 +434,7 @@ defaults write com.apple.iTunes disablePingSidebar -bool true
 
 # Disable all the other Ping stuff in iTunes
 defaults write com.apple.iTunes disablePing -bool true
-  
+
 
 #################################################################
 # Mail                                                          #
@@ -454,7 +442,7 @@ defaults write com.apple.iTunes disablePing -bool true
 
 # Copy email addresses as `foo@example.com` instead of `Foo Bar <foo@example.com>` in Mail.app
 defaults write com.apple.mail AddressesIncludeNameOnPasteboard -bool false
-  
+
 
 #################################################################
 # Time Machine                                                  #
@@ -498,8 +486,8 @@ defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
 
-  
-  
+
+
 # Reset the affected apps
 for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
   killall "$app" > /dev/null 2>&1
