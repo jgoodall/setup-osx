@@ -16,6 +16,7 @@ if [ ! -e /Applications/Atom.app ]; then
   curl -sL -o atom.zip https://atom.io/download/mac
   unzip atom.zip
   mv Atom.app /Applications/
+
 fi
 
 # install [brew](http://mxcl.github.com/homebrew/)
@@ -32,7 +33,7 @@ fi
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
-  brew install git
+  brew install git git-flow
 fi
 
 # install [zsh](http://www.zsh.org/)
@@ -81,6 +82,12 @@ fi
 if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   echo "Installing http-server..."
   npm install -g http-server
+fi
+
+# install [jq](https://stedolan.github.io/jq/)
+if [ ! -e /usr/local/bin/jq ]; then
+  echo "Installing jq..."
+  brew install jq
 fi
 
 # install python
