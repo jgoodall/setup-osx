@@ -10,15 +10,6 @@ CWD=`pwd`
 # Install tools
 #################################################################
 
-# install [atom](https://atom.io/)
-if [ ! -e /Applications/Atom.app ]; then
-  echo "Installing atom..."
-  curl -sL -o atom.zip https://atom.io/download/mac
-  unzip atom.zip
-  mv Atom.app /Applications/
-
-fi
-
 # install [brew](http://mxcl.github.com/homebrew/)
 if [ ! -e /usr/local/bin/brew ]; then
   echo "Installing homebrew..."
@@ -27,7 +18,13 @@ fi
 
 # install [brew-cask](https://github.com/phinze/homebrew-cask)
 if [ ! -d /opt/homebrew-cask/Caskroom ]; then
-  brew install caskroom/cask/brew-cask
+  brew tap caskroom/cask
+fi
+
+# install [atom](https://atom.io/)
+if [ ! -e /Applications/Atom.app ]; then
+  echo "Installing atom..."
+  brew cask install atom
 fi
 
 # install [git](http://git-scm.com/)
@@ -122,7 +119,7 @@ fi
 
 # install vagrant
 if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
-  brew cask install vagrant virtualbox vagrant-manager
+  brew cask install vagrant
 fi
 
 
@@ -190,12 +187,12 @@ cp -rf $CWD/mac/Services/* $LIB/Services/
 
 echo "Installing Fonts..."
 cd $LIB/Fonts
-\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -qof Anonymous-Pro && rm Anonymous-Pro
-\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -qof Inconsolata && rm Inconsolata
-\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -qof source-code-pro && rm source-code-pro
-\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -qof architects-daughter && rm architects-daughter
-\curl -O --silent --location http://www.fontsquirrel.com/fonts/download/Daniel && unzip -qof Daniel && rm Daniel
-mv -f *.txt ~/.Trash/
+\curl -OL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -qof Anonymous-Pro && rm Anonymous-Pro
+\curl -OL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -qof Inconsolata && rm Inconsolata
+\curl -OL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -qof source-code-pro && rm source-code-pro
+\curl -OL http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -qof architects-daughter && rm architects-daughter
+\curl -OL http://www.fontsquirrel.com/fonts/download/Daniel && unzip -qof Daniel && rm Daniel
+rm -f *.txt ~/.Trash/
 cd $CWD
 
 
