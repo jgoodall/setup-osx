@@ -187,11 +187,11 @@ cp -rf $CWD/mac/Services/* $LIB/Services/
 
 echo "Installing Fonts..."
 cd $LIB/Fonts
-\curl -OL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -qof Anonymous-Pro && rm Anonymous-Pro
-\curl -OL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -qof Inconsolata && rm Inconsolata
-\curl -OL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -qof source-code-pro && rm source-code-pro
-\curl -OL http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -qof architects-daughter && rm architects-daughter
-\curl -OL http://www.fontsquirrel.com/fonts/download/Daniel && unzip -qof Daniel && rm Daniel
+\curl -OL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -o Anonymous-Pro && rm Anonymous-Pro
+\curl -OL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -o Inconsolata && rm Inconsolata
+\curl -OL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -o source-code-pro && rm source-code-pro
+\curl -OL http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -o architects-daughter && rm architects-daughter
+\curl -OL http://www.fontsquirrel.com/fonts/download/Daniel && unzip -o Daniel && rm Daniel
 rm -f *.txt ~/.Trash/
 cd $CWD
 
