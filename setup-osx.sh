@@ -40,24 +40,37 @@ if [ ! -e /usr/local/bin/zsh ]; then
   chsh -s /bin/zsh
 fi
 
+# install [fzf](https://github.com/junegunn/fzf) fuzzy search
+if [ ! -e /usr/local/bin/fzf ]; then
+  echo "Installing fzf..."
+  brew install fzf
+fi
+
 # install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 if [ ! -d $HOME/.oh-my-zsh ]; then
   echo "Installing oh-my-zsh..."
   curl -L http://install.ohmyz.sh | sh
-  cd ~/.oh-my-zsh/custom/plugins
+  cd $HOME/.oh-my-zsh/custom/plugins
   git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
   git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
 # install [antigen](http://antigen.sharats.me/) zsh plugin manager
-if [ ! -d ]; then
-  git clone https://github.com/zsh-users/antigen.git ~/.zsh-antigen
+if [ ! -d $HOME/.zsh-antigen ]; then
+  git clone https://github.com/zsh-users/antigen.git $HOME/.zsh-antigen
 fi
 
-# install [fzf](https://github.com/junegunn/fzf) fuzzy search
-if [ ! -e /usr/local/bin/fzf ]; then
-  echo "Installing fzf..."
-  brew install fzf
+# Install [qfc](https://github.com/pindexis/qfc) file completion
+if [ ! -e $HOME/.qfc ]; then
+  echo "Installing qfc..."
+  git clone https://github.com/pindexis/qfc $HOME/.qfc
+fi
+
+# Install [marker](https://github.com/pindexis/marker) command palette
+if [ ! -e $HOME/.marker ]; then
+  echo "Installing marker..."
+  git clone https://github.com/pindexis/marker $HOME/.marker
+  $HOME/.marker/install.py
 fi
 
 # install [z](https://github.com/rupa/z) directory tracking
