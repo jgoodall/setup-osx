@@ -49,6 +49,11 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
+# install [antigen](http://antigen.sharats.me/) zsh plugin manager
+if [ ! -d ]; then
+  git clone https://github.com/zsh-users/antigen.git ~/.zsh-antigen
+fi
+
 # install [fzf](https://github.com/junegunn/fzf) fuzzy search
 if [ ! -e /usr/local/bin/fzf ]; then
   echo "Installing fzf..."

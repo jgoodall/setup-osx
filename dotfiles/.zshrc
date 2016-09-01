@@ -1,5 +1,5 @@
-
-source "${HOME}/.antigen-home/antigen.zsh"
+ZSHA_BASE=$HOME/.zsh-antigen
+source $ZSHA_BASE/antigen.zsh
 
 antigen use oh-my-zsh
 
