@@ -49,13 +49,19 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
   git clone git://github.com/zsh-users/zsh-history-substring-search.git
 fi
 
-# install [fzf](https://github.com/junegunn/fzf)
+# install [fzf](https://github.com/junegunn/fzf) fuzzy search
 if [ ! -e /usr/local/bin/fzf ]; then
   echo "Installing fzf..."
   brew install fzf
 fi
 
-# install [trash](http://hasseg.org/trash/)
+# install [z](https://github.com/rupa/z) directory tracking
+if [ ! -e /usr/local/bin/z ]; then
+  echo "Installing z..."
+  brew install z
+fi
+
+# install [trash](http://hasseg.org/trash/) alternative to rm
 if [ ! -e /usr/local/bin/trash ]; then
   echo "Installing trash..."
   brew install trash
