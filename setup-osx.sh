@@ -93,9 +93,14 @@ if [ ! -e /usr/local/bin/go ]; then
 fi
 mkdir -p $HOME/dev/go
 export GOPATH=$HOME/dev/go
+
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
+fi
+if [ ! -x $GOPATH/bin/modd ]; then
+  echo "Installing modd tool..."
+  go get github.com/cortesi/modd/cmd/modd
 fi
 if [ ! -x $GOPATH/bin/govendor ]; then
   echo "Installing govendor..."
