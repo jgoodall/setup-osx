@@ -144,7 +144,8 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   # brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
   \curl -sSL https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
-  rvm install ruby-2.1-head
+  rvm requirements
+  rvm install 2.1
 fi
 
 # install vagrant
