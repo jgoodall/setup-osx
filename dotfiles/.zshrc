@@ -50,6 +50,10 @@ antigen apply
 CASE_SENSITIVE="false"
 COMPLETION_WAITING_DOTS="true"
 
+# https://github.com/zsh-users/zsh-history-substring-search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
 #######################################
 #
 # CUSTOMIZATION
@@ -106,7 +110,11 @@ export MANPAGER="less -X"
 export LESS_TERMCAP_md="$ORANGE"
 
 # GOROOT-based binaries
-export PATH=$PATH:/usr/local/opt/go/libexec/bin
+if [[ `uname -s` == 'Darwin' ]]; then
+  export PATH=$PATH:/usr/local/opt/go/libexec/bin
+else
+  export PATH=$PATH:/usr/local/go/bin
+fi
 
 # Default Go path
 export GOPATH=~/dev/go
@@ -216,7 +224,7 @@ export EDITOR="vim"
 export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 # [z](https://github.com/rupa/z) - jump around
-. /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
+[ -f /usr/local/Cellar/z/1.9/etc/profile.d/z.sh ] && . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
