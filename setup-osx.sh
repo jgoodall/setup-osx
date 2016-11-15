@@ -65,13 +65,18 @@ if [ ! -d /Applications/iTerm.app ]; then
 fi
 
 # install [1password](https://1password.com/)
-if [ ! -d /Applications/iTerm.app ]; then
+if [ ! -d "/Applications/1Password 6.app" ]; then
   brew cask install 1password
 fi
 
 # install [alfred](https://www.alfredapp.com/)
 if [ ! -d "/Applications/Alfred 3.app" ]; then
   brew cask install alfred
+fi
+
+# install [vmware](https://www.vmware.com/products/fusion.html)
+if [ ! -d "/Applications/VMware Fusion.app" ]; then
+  brew cask install vmware-fusion
 fi
 
 # install [slack](https://slack.com/)
@@ -87,6 +92,11 @@ fi
 # install [revisions](https://revisionsapp.com/) - for dropbox
 if [ ! -d /Applications/Revisions.app ]; then
   brew cask install revisions
+fi
+
+# install [google drive](https://www.google.com/drive/)
+if [ ! -d "/Applications/Google Drive.app" ]; then
+  brew cask install google-drive
 fi
 
 # install [owncloud](https://owncloud.org/)
@@ -127,6 +137,16 @@ fi
 # install [spotify](https://spotify.com/)
 if [ ! -d /Applications/Spotify.app ]; then
   brew cask install spotify
+fi
+
+# install [omniplan](https://www.omnigroup.com/omniplan)
+if [ ! -d /Applications/OmniPlan.app ]; then
+  brew cask install omniplan
+fi
+
+# install [omnigraffle](https://omnigraffle.com/)
+if [ ! -d /Applications/OmniGraffle.app ]; then
+  brew cask install omnigraffle
 fi
 
 # install [chrome](https://www.google.com/chrome/browser/desktop/index.html)
