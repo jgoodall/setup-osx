@@ -21,6 +21,22 @@ if [ ! -d /opt/homebrew-cask/Caskroom ]; then
   brew tap caskroom/cask
 fi
 
+# install [git](http://git-scm.com/)
+if [ ! -e /usr/local/bin/git ]; then
+  echo "Installing git..."
+  brew install git git-flow
+fi
+# install [hg](https://www.mercurial-scm.org/)
+if [ ! -e /usr/local/bin/hg ]; then
+  echo "Installing mercurial..."
+  brew install mercurial
+fi
+# install [bazaar](http://bazaar.canonical.com/en/)
+if [ ! -e /usr/local/bin/bzr ]; then
+  echo "Installing bazaar..."
+  brew install bazaar
+fi
+
 # install [atom](https://atom.io/)
 if [ ! -e /Applications/Atom.app ]; then
   echo "Installing atom..."
@@ -30,12 +46,6 @@ if [ ! -e /Applications/Atom.app ]; then
   apm install go-plus
   apm install react
   apm install unity-ui nucleus-dark-ui
-fi
-
-# install [git](http://git-scm.com/)
-if [ ! -e /usr/local/bin/git ]; then
-  echo "Installing git..."
-  brew install git git-flow
 fi
 
 # install [zsh](http://www.zsh.org/)
