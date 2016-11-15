@@ -1,0 +1,20 @@
+---
+version: 2
+iterm2: true
+profile: "Solarized Light"
+clusters:
+  copsres:
+    columns: 5
+    hosts:
+      - copsres01
+      - copsres02
+      - copsres03
+      - copsres04
+      - copsres05
+  cyberres:
+    columns: 3
+    hosts:
+      - cyberres1
+      - cyberres2
+      - cyberres3
+
