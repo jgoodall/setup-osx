@@ -163,14 +163,6 @@ if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   npm install -g http-server
 fi
 
-# install python
-if [ ! -e /usr/local/bin/python ]; then
-  echo "Installing python and pip..."
-  brew install python
-  /usr/local/bin/pip install --upgrade distribute
-  /usr/local/bin/pip install --upgrade pip
-fi
-
 # install [rvm](https://rvm.io/)
 if [ ! -x $HOME/.rvm/bin/rvm ]; then
   echo "Installing ruby and rvm..."
@@ -179,13 +171,21 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   \curl -sSL https://get.rvm.io | bash -s stable
   source ~/.rvm/scripts/rvm
   rvm requirements
-  rvm install 2.1
+  rvm install ruby-2.1-head
+  rvm use ruby-2.1-head
+
 fi
 
 # install [i2cssh](https://github.com/wouterdebie/i2cssh)
 which i2cssh > /dev/null
 if [ $? -eq 1 ]; then
   gem install i2cssh
+fi
+
+# install [jekyll](https://jekyllrb.com/)
+which jekyll > /dev/null
+if [ $? -eq 1 ]; then
+  gem install jekyll bundler
 fi
 
 # install [vagrant](https://www.vagrantup.com/)
