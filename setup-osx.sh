@@ -6,6 +6,12 @@ APP_SUPPORT=$LIB/Application\ Support
 # Current directory
 CWD=`pwd`
 
+if [ ! -d /Applications/Xcode.app ]; then
+  echo "Install Xcode from the App Store first."
+  exit 1
+fi
+
+
 #################################################################
 # Install tools
 #################################################################
