@@ -25,6 +25,11 @@ fi
 if [ ! -e /Applications/Atom.app ]; then
   echo "Installing atom..."
   brew cask install atom
+  apm install language-protobuf language-latex
+  apm install linter linter-eslint linter-js-yaml linter-protocol-buffer linter-shellcheck
+  apm install go-plus
+  apm install react
+  apm install unity-ui nucleus-dark-ui
 fi
 
 # install [git](http://git-scm.com/)
@@ -146,6 +151,12 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   source ~/.rvm/scripts/rvm
   rvm requirements
   rvm install 2.1
+fi
+
+# install [i2cssh](https://github.com/wouterdebie/i2cssh)
+which i2cssh > /dev/null
+if [ $? -eq 1 ]; then
+  gem install i2cssh
 fi
 
 # install [vagrant](https://www.vagrantup.com/)
