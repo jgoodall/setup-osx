@@ -21,6 +21,8 @@ if [ ! -d /opt/homebrew-cask/Caskroom ]; then
   brew tap caskroom/cask
 fi
 
+## SOURCE CODE CONTROL ##
+
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
@@ -37,6 +39,9 @@ if [ ! -e /usr/local/bin/bzr ]; then
   brew install bazaar
 fi
 
+
+## APPLICATIONS ##
+
 # install [atom](https://atom.io/)
 if [ ! -e /Applications/Atom.app ]; then
   echo "Installing atom..."
@@ -47,6 +52,60 @@ if [ ! -e /Applications/Atom.app ]; then
   apm install react
   apm install unity-ui nucleus-dark-ui
 fi
+
+# install [iterm2](https://iterm2.com/)
+if [ ! -d /Applications/iTerm.app ]; then
+  brew cask install iterm2
+fi
+
+# install [slack](https://slack.com/)
+if [ ! -d /Applications/Slack.app ]; then
+  brew cask install slack
+fi
+
+# install [dropbox](https://dropbox.com/)
+if [ ! -d /Applications/Dropbox.app ]; then
+  brew cask install dropbox
+fi
+
+# install [owncloud](https://owncloud.org/)
+if [ ! -d /Applications/owncloud.app ]; then
+  brew cask install owncloud
+fi
+
+# install [ubersicht](http://tracesof.net/uebersicht/)
+if [ ! -d /Applications/Übersicht.app ]; then
+  brew cask install ubersicht
+fi
+
+# install [go2shell](http://zipzapmac.com/Go2Shell)
+if [ ! -d /Applications/Go2Shell.app ]; then
+  brew cask install go2shell
+fi
+
+# install [nvalt](http://brettterpstra.com/projects/nvalt/)
+if [ ! -d /Applications/nvALT.app ]; then
+  brew cask install nvalt
+fi
+
+# install [spotify](https://spotify.com/)
+if [ ! -d /Applications/Spotify.app ]; then
+  brew cask install spotify
+fi
+
+# install [chrome](https://www.google.com/chrome/browser/desktop/index.html)
+if [ ! -d "/Applications/Google Chrome.app" ]; then
+  brew cask install google-chrome
+fi
+
+# install [firefox](https://www.mozilla.org/firefox/)
+if [ ! -d /Applications/Firefox.app ]; then
+  brew cask install firefox
+fi
+
+
+
+## COMMAND LINE TOOLS ##
 
 # install [zsh](http://www.zsh.org/)
 if [ ! -e /usr/local/bin/zsh ]; then
@@ -131,6 +190,9 @@ if [ ! -e /usr/local/bin/trash ]; then
   brew install trash
 fi
 
+
+## GOLANG ##
+
 # install [go](http://golang.org/)
 if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
@@ -152,6 +214,9 @@ if [ ! -x $GOPATH/bin/govendor ]; then
   go get github.com/kardianos/govendor
 fi
 
+
+## NODE.JS ##
+
 # install [node](http://nodejs.org/)
 if [ ! -e /usr/local/bin/node ]; then
   echo "Installing node.js..."
@@ -163,18 +228,7 @@ if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   npm install -g http-server
 fi
 
-# install [rvm](https://rvm.io/)
-if [ ! -x $HOME/.rvm/bin/rvm ]; then
-  echo "Installing ruby and rvm..."
-  # brew tap --repair homebrew/dupes
-  # brew install apple-gcc42 autoconf automake libtool libyaml libxml2 libxslt libksba openssl
-  \curl -sSL https://get.rvm.io | bash -s stable
-  source ~/.rvm/scripts/rvm
-  rvm requirements
-  rvm install ruby-2.1-head
-  rvm use ruby-2.1-head
-
-fi
+## RUBY ##
 
 # install [i2cssh](https://github.com/wouterdebie/i2cssh)
 which i2cssh > /dev/null
@@ -188,6 +242,9 @@ if [ $? -eq 1 ]; then
   gem install jekyll bundler
 fi
 
+
+## DEVOPS TOOLS ##
+
 # install [vagrant](https://www.vagrantup.com/)
 if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
   brew cask install vagrant
@@ -199,6 +256,9 @@ if [ ! -e /usr/local/bin/packer ]; then
   brew install packer
 fi
 
+
+## DESKTOP TOOLS ##
+
 # install [moom](https://manytricks.com/moom/)
 if [ ! -d /Applications/Moom.app ]; then
   brew cask install moom
@@ -208,6 +268,9 @@ fi
 if [ ! -d "/Applications/The Unarchiver.app" ]; then
   brew cask install the-unarchiver
 fi
+
+
+## DEV DEPENDENCIES ##
 
 # install elasticsearch
 if [ ! -e /usr/local/bin/elasticsearch ]; then
