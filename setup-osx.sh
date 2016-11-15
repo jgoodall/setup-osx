@@ -258,6 +258,10 @@ if [ ! -x $GOPATH/bin/govendor ]; then
   echo "Installing govendor..."
   go get github.com/kardianos/govendor
 fi
+if [ ! -x $GOPATH/bin/expvarmon ]; then
+  echo "Installing expvarmon..."
+  go get github.com/divan/expvarmon/
+fi
 
 
 ## NODE.JS ##
