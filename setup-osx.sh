@@ -397,16 +397,6 @@ done
 # Application Configurations
 #################################################################
 
-# [Chrome](https://chrome.google.com) web inspector css
-echo "Copying Chrome custom styles..."
-CHROME_DIR=$APP_SUPPORT/Google/Chrome/Default
-if [ -d "$CHROME_DIR" ]; then
-  if [ ! -d "$CHROME_DIR/User StyleSheets" ]; then
-    mkdir "$CHROME_DIR/User StyleSheets"
-  fi
-  cat $CWD/mac/apps/Chrome/Custom.css > $CHROME_DIR/User\ StyleSheets/Custom.css
-fi
-
 # [Marked](http://markedapp.com/)
 MARKED_DIR=$APP_SUPPORT/Marked
 echo "Copying Marked.app custom styles..."
@@ -417,6 +407,7 @@ if [ -d "$MARKED_DIR" ]; then
   cd "$MARKED_DIR/Custom CSS" && curl --silent --location https://raw.github.com/moritzz/Writer-CSS/master/iA%20Writer.css --output iA\ Writer.css && cd $CWD
   cd "$MARKED_DIR/Custom CSS" && curl --silent --location -O https://raw.github.com/jgoodall/markedapp-solarized/master/Marked-Solarized.css && cd $CWD
 fi
+
 
 #################################################################
 # System Configurations
