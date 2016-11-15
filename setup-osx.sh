@@ -24,7 +24,7 @@ fi
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
-  brew install git git-flow
+  brew install git git-flow git-extras git-lfs
 fi
 # install [hg](https://www.mercurial-scm.org/)
 if [ ! -e /usr/local/bin/hg ]; then
@@ -52,13 +52,43 @@ fi
 if [ ! -e /usr/local/bin/zsh ]; then
   echo "Installing zsh and setting to a default shell..."
   brew install zsh
-  chsh -s /bin/zsh
+  chsh -s /usr/local/bin/zsh
+fi
+
+# install [corkscrew]http://agroman.net/corkscrew/)
+if [ ! -e /usr/local/bin/corkscrew ]; then
+  echo "Installing corkscrew..."
+  brew install corkscrew
 fi
 
 # install [fzf](https://github.com/junegunn/fzf) fuzzy search
 if [ ! -e /usr/local/bin/fzf ]; then
   echo "Installing fzf..."
   brew install fzf
+fi
+
+# install [silver searcher](http://geoff.greer.fm/ag/) grep replacement
+if [ ! -e /usr/local/bin/ag ]; then
+  echo "Installing ag..."
+  brew install the_silver_searcher
+fi
+
+# install [httpie](https://httpie.org/) curl replacement
+if [ ! -e /usr/local/bin/http ]; then
+  echo "Installing httpie..."
+  brew install httpie
+fi
+
+# install [htop](https://hisham.hm/htop/) top replacement
+if [ ! -e /usr/local/bin/htop ]; then
+  echo "Installing htop..."
+  brew install htop
+fi
+
+# install [jq](https://stedolan.github.io/jq/)
+if [ ! -e /usr/local/bin/jq ]; then
+  echo "Installing jq..."
+  brew install jq
 fi
 
 # install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
@@ -128,20 +158,9 @@ if [ ! -e /usr/local/bin/node ]; then
   brew install node
 fi
 
-if [ ! -d /usr/local/lib/node_modules/jsonlint ]; then
-  echo "Installing jsonlint..."
-  npm install -g jsonlint
-fi
-
 if [ ! -d /usr/local/lib/node_modules/http-server ]; then
   echo "Installing http-server..."
   npm install -g http-server
-fi
-
-# install [jq](https://stedolan.github.io/jq/)
-if [ ! -e /usr/local/bin/jq ]; then
-  echo "Installing jq..."
-  brew install jq
 fi
 
 # install python
@@ -174,6 +193,12 @@ if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
   brew cask install vagrant
 fi
 
+# install [packer](https://www.packer.io/)
+if [ ! -e /usr/local/bin/packer ]; then
+  echo "Installing packer..."
+  brew install packer
+fi
+
 # install [moom](https://manytricks.com/moom/)
 if [ ! -d /Applications/Moom.app ]; then
   brew cask install moom
@@ -182,6 +207,54 @@ fi
 # install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
 if [ ! -d "/Applications/The Unarchiver.app" ]; then
   brew cask install the-unarchiver
+fi
+
+# install elasticsearch
+if [ ! -e /usr/local/bin/elasticsearch ]; then
+  echo "Installing elasticsearch..."
+  brew install elasticsearch
+fi
+
+# install elasticsearch
+if [ ! -e /usr/local/bin/elasticsearch ]; then
+  echo "Installing elasticsearch..."
+  brew install elasticsearch
+fi
+
+# install gnatsd
+if [ ! -e /usr/local/bin/gnatsd ]; then
+  echo "Installing gnatsd..."
+  brew install gnatsd
+fi
+
+# install rabbitmq
+if [ ! -e /usr/local/bin/rabbitmq-server ]; then
+  echo "Installing rabbitmq..."
+  brew install rabbitmq
+fi
+
+# install redis
+if [ ! -e /usr/local/bin/redis-server ]; then
+  echo "Installing redis..."
+  brew install redis
+fi
+
+# install protobuf
+if [ ! -e /usr/local/bin/protoc ]; then
+  echo "Installing protobuf..."
+  brew install protobuf
+fi
+
+# install nanomsg
+if [ ! -e /usr/local/bin/nanocat ]; then
+  echo "Installing nanomsg..."
+  brew install nanomsg
+fi
+
+# install kafka
+if [ ! -e /usr/local/bin/kafka-server-start ]; then
+  echo "Installing kafka..."
+  brew install kafka
 fi
 
 
