@@ -747,5 +747,5 @@ done
 
 cd $CWD
 
-echo "Install Xcode, Pages, Numbers, and Keynote via the App Store."
+echo "Install Mac Apps (Pages, Numbers, and Keynote) via the App Store."
 echo "Install Marked, Pocket, Screeny, and IA Writer via the App Store."
