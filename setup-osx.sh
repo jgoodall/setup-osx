@@ -58,6 +58,16 @@ if [ ! -d /Applications/iTerm.app ]; then
   brew cask install iterm2
 fi
 
+# install [1password](https://1password.com/)
+if [ ! -d /Applications/iTerm.app ]; then
+  brew cask install 1password
+fi
+
+# install [alfred](https://www.alfredapp.com/)
+if [ ! -d "/Applications/Alfred 3.app" ]; then
+  brew cask install alfred
+fi
+
 # install [slack](https://slack.com/)
 if [ ! -d /Applications/Slack.app ]; then
   brew cask install slack
@@ -68,9 +78,19 @@ if [ ! -d /Applications/Dropbox.app ]; then
   brew cask install dropbox
 fi
 
+# install [revisions](https://revisionsapp.com/) - for dropbox
+if [ ! -d /Applications/Revisions.app ]; then
+  brew cask install revisions
+fi
+
 # install [owncloud](https://owncloud.org/)
 if [ ! -d /Applications/owncloud.app ]; then
   brew cask install owncloud
+fi
+
+# install [cloud](https://www.getcloudapp.com/)
+if [ ! -d /Applications/CloudApp.app ]; then
+  brew cask install cloud
 fi
 
 # install [ubersicht](http://tracesof.net/uebersicht/)
@@ -81,6 +101,16 @@ fi
 # install [go2shell](http://zipzapmac.com/Go2Shell)
 if [ ! -d /Applications/Go2Shell.app ]; then
   brew cask install go2shell
+fi
+
+# install [moom](https://manytricks.com/moom/)
+if [ ! -d /Applications/Moom.app ]; then
+  brew cask install moom
+fi
+
+# install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
+if [ ! -d "/Applications/The Unarchiver.app" ]; then
+  brew cask install the-unarchiver
 fi
 
 # install [nvalt](http://brettterpstra.com/projects/nvalt/)
@@ -103,6 +133,15 @@ if [ ! -d /Applications/Firefox.app ]; then
   brew cask install firefox
 fi
 
+# install [papers](http://papersapp.com/)
+if [ ! -d /Applications/Papers.app ]; then
+  brew cask install papers
+fi
+
+# install [dash](https://kapeli.com/dash)
+if [ ! -d /Applications/Dash.app ]; then
+  brew cask install dash
+fi
 
 
 ## COMMAND LINE TOOLS ##
@@ -246,27 +285,20 @@ fi
 ## DEVOPS TOOLS ##
 
 # install [vagrant](https://www.vagrantup.com/)
-if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
+if [ ! -x /usr/local/bin/vagrant ]; then
   brew cask install vagrant
+fi
+
+# install [docker](https://www.docker.com/)
+if [ ! -e /Applications/Docker.app ]; then
+  echo "Installing docker..."
+  brew cask install docker
 fi
 
 # install [packer](https://www.packer.io/)
 if [ ! -e /usr/local/bin/packer ]; then
   echo "Installing packer..."
   brew install packer
-fi
-
-
-## DESKTOP TOOLS ##
-
-# install [moom](https://manytricks.com/moom/)
-if [ ! -d /Applications/Moom.app ]; then
-  brew cask install moom
-fi
-
-# install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
-if [ ! -d "/Applications/The Unarchiver.app" ]; then
-  brew cask install the-unarchiver
 fi
 
 
@@ -708,3 +740,6 @@ for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
 done
 
 cd $CWD
+
+echo "Install Xcode, Pages, Numbers, and Keynote via the App Store."
+echo "Install Marked, Pocket, Screeny, and IA Writer via the App Store."
