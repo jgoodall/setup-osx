@@ -8,7 +8,7 @@
   br = branch
   rmd = !"git ls-files --deleted | while read FILE; do git rm \"$FILE\"; done"
   l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-	ll = log --stat --abbrev-commit
+  ll = log --stat --abbrev-commit
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [color]
   ui = auto
