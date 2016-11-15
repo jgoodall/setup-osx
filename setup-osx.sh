@@ -148,9 +148,19 @@ if [ ! -x $HOME/.rvm/bin/rvm ]; then
   rvm install 2.1
 fi
 
-# install vagrant
+# install [vagrant](https://www.vagrantup.com/)
 if [ ! -x /Applications/Vagrant/bin/vagrant ]; then
   brew cask install vagrant
+fi
+
+# install [moom](https://manytricks.com/moom/)
+if [ ! -d /Applications/Moom.app ]; then
+  brew cask install moom
+fi
+
+# install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
+if [ ! -d "/Applications/The Unarchiver.app" ]; then
+  brew cask install the-unarchiver
 fi
 
 
