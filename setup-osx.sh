@@ -412,7 +412,7 @@ MARKED_DIR=$APP_SUPPORT/Marked
 echo "Copying Marked.app custom styles..."
 if [ -d "$MARKED_DIR" ]; then
   if [ ! -d "$MARKED_DIR/Custom CSS" ]; then
-    mkdir "$MARKED_DIR/Custom CSS"
+    mkdir -p "$MARKED_DIR/Custom CSS"
   fi
   cd "$MARKED_DIR/Custom CSS" && curl --silent --location https://raw.github.com/moritzz/Writer-CSS/master/iA%20Writer.css --output iA\ Writer.css && cd $CWD
   cd "$MARKED_DIR/Custom CSS" && curl --silent --location -O https://raw.github.com/jgoodall/markedapp-solarized/master/Marked-Solarized.css && cd $CWD
@@ -430,10 +430,6 @@ cd $LIB/Colors && curl -O --silent --location https://github.com/altercation/sol
 echo "Installing QuickLook plugins..."
 brew cask install qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql
 qlmanage -r
-
-# applescripts
-echo "Copying AppleScripts..."
-cp -rf $CWD/mac/Scripts/* $LIB/Scripts/
 
 # services
 echo "Copying System Services..."
@@ -762,12 +758,11 @@ defaults write com.twitter.twitter-mac ESCClosesComposeWindow -bool true
 # Hide the app in the background if it’s not the front-most window
 defaults write com.twitter.twitter-mac HideInBackground -bool true
 
-
-
 # Reset the affected apps
 for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
   killall "$app" > /dev/null 2>&1
 done
+
 
 cd $CWD
 
