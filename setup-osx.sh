@@ -84,6 +84,11 @@ if [ ! -d /Applications/Slack.app ]; then
   brew cask install slack
 fi
 
+# install [WhatsApp](https://whatsapp.com/)
+if [ ! -d /Applications/WhatsApp.app ]; then
+  brew cask install whatsapp
+fi
+
 # install [dropbox](https://dropbox.com/)
 if [ ! -d /Applications/Dropbox.app ]; then
   brew cask install dropbox
