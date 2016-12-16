@@ -285,7 +285,11 @@ if [ ! -x $GOPATH/bin/govendor ]; then
 fi
 if [ ! -x $GOPATH/bin/expvarmon ]; then
   echo "Installing expvarmon..."
-  go get github.com/divan/expvarmon/
+  go get github.com/divan/expvarmon
+fi
+if [ ! -x $GOPATH/bin/binstale ]; then
+  echo "Installing binstale..."
+  go get github.com/shurcooL/binstale
 fi
 
 
