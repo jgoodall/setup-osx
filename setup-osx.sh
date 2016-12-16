@@ -271,6 +271,27 @@ fi
 mkdir -p $HOME/dev/go
 export GOPATH=$HOME/dev/go
 
+if [ ! -x $GOPATH/bin/goimports ]; then
+  echo "Installing goimports..."
+  go get golang.org/x/tools/cmd/goimports
+fi
+if [ ! -x $GOPATH/bin/gotype ]; then
+  echo "Installing gotype..."
+  go get golang.org/x/tools/cmd/gotype
+fi
+if [ ! -x $GOPATH/bin/gorename ]; then
+  echo "Installing gorename..."
+  go get golang.org/x/tools/cmd/gorename
+fi
+if [ ! -x $GOPATH/bin/cover ]; then
+  echo "Installing cover..."
+  go get golang.org/x/tools/cmd/cover
+fi
+if [ ! -x $GOPATH/bin/benchcmp ]; then
+  echo "Installing benchcmp..."
+  go get golang.org/x/tools/cmd/benchcmp
+fi
+
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
