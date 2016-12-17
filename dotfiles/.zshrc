@@ -60,6 +60,8 @@ bindkey '^[[B' history-substring-search-down
 #
 #######################################
 
+export EDITOR="vim"
+
 # [marker](https://github.com/pindexis/marker) terminal command palette
 # Ctrl-space: search for commands that match the current written string in the command-line
 # Ctrl-k (or marker add): Bookmark a command
@@ -213,19 +215,12 @@ if [ -x /usr/bin/vagrant ] ; then
   fi
 fi
 
-export EDITOR="vim"
-
-# added by travis gem
-[ -f /Users/ojg/.travis/travis.sh ] && source /Users/ojg/.travis/travis.sh
-
-# [bat](https://github.com/astaxie/bat) - curl for humans
-[ -f $HOME/dev/go/bin/bat ] && alias b="$HOME/dev/go/bin/bat"
-
-export N_PREFIX="$HOME/n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
-
 # [z](https://github.com/rupa/z) - jump around
 [ -f /usr/local/Cellar/z/1.9/etc/profile.d/z.sh ] && . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# alias to check all updates
+alias check_updates="softwareupdate --list && brewfr && binstale"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
