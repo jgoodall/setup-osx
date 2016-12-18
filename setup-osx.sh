@@ -184,10 +184,16 @@ if [ ! -e /usr/local/bin/zsh ]; then
   chsh -s /usr/local/bin/zsh
 fi
 
-# install [corkscrew]http://agroman.net/corkscrew/)
+# install [corkscrew](http://agroman.net/corkscrew/)
 if [ ! -e /usr/local/bin/corkscrew ]; then
   echo "Installing corkscrew..."
   brew install corkscrew
+fi
+
+# install [armor](https://armor.labstack.com/)
+if [ ! -e /usr/local/bin/armor ]; then
+  echo "Installing armor..."
+  brew install armor
 fi
 
 # install [fzf](https://github.com/junegunn/fzf) fuzzy search
