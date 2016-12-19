@@ -221,6 +221,6 @@ fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # alias to check all updates
-alias check_updates="softwareupdate --list && brewfr && binstale"
+alias check_updates="softwareupdate --list && brew update > /dev/null && brew outdated && npm outdated -g && binstale | grep 'stale: '"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
