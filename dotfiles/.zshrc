@@ -1,5 +1,4 @@
-ZSHA_BASE=$HOME/.zsh-antigen
-source $ZSHA_BASE/antigen.zsh
+# Antigen
 
 antigen use oh-my-zsh
 
@@ -36,6 +35,8 @@ antigen bundle npm
 
 antigen bundle vagrant
 antigen bundle docker
+
+antigen apply
 
 if [[ `uname -s` == 'Darwin' ]]; then
     antigen bundle brew

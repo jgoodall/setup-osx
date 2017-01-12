@@ -61,116 +61,139 @@ fi
 
 # install [iterm2](https://iterm2.com/)
 if [ ! -d /Applications/iTerm.app ]; then
+  echo "Installing iTerm2..."
   brew cask install iterm2
 fi
 
 # install [1password](https://1password.com/)
 if [ ! -d "/Applications/1Password 6.app" ]; then
+  echo "Installing 1Password..."
   brew cask install 1password
 fi
 
 # install [alfred](https://www.alfredapp.com/)
 if [ ! -d "/Applications/Alfred 3.app" ]; then
+  echo "Installing alfred..."
   brew cask install alfred
 fi
 
 # install [vmware](https://www.vmware.com/products/fusion.html)
 if [ ! -d "/Applications/VMware Fusion.app" ]; then
+  echo "Installing vmware..."
   brew cask install vmware-fusion
 fi
 
 # install [slack](https://slack.com/)
 if [ ! -d /Applications/Slack.app ]; then
+  echo "Installing Slack..."
   brew cask install slack
 fi
 
 # install [WhatsApp](https://whatsapp.com/)
 if [ ! -d /Applications/WhatsApp.app ]; then
+  echo "Installing WhatsApp..."
   brew cask install whatsapp
 fi
 
 # install [dropbox](https://dropbox.com/)
 if [ ! -d /Applications/Dropbox.app ]; then
+  echo "Installing Dropbox..."
   brew cask install dropbox
 fi
 
 # install [revisions](https://revisionsapp.com/) - for dropbox
 if [ ! -d /Applications/Revisions.app ]; then
+  echo "Installing Revisions for Dropbox..."
   brew cask install revisions
 fi
 
 # install [google drive](https://www.google.com/drive/)
 if [ ! -d "/Applications/Google Drive.app" ]; then
+  echo "Installing Google Drive..."
   brew cask install google-drive
 fi
 
 # install [owncloud](https://owncloud.org/)
 if [ ! -d /Applications/owncloud.app ]; then
+  echo "Installing ownCloud..."
   brew cask install owncloud
 fi
 
 # install [cloud](https://www.getcloudapp.com/)
 if [ ! -d /Applications/CloudApp.app ]; then
+  echo "Installing CloudApp..."
   brew cask install cloud
 fi
 
 # install [ubersicht](http://tracesof.net/uebersicht/)
 if [ ! -d /Applications/Übersicht.app ]; then
+  echo "Installing Übersicht..."
   brew cask install ubersicht
 fi
 
 # install [go2shell](http://zipzapmac.com/Go2Shell)
 if [ ! -d /Applications/Go2Shell.app ]; then
+  echo "Installing Go2Shell..."
   brew cask install go2shell
 fi
 
 # install [moom](https://manytricks.com/moom/)
 if [ ! -d /Applications/Moom.app ]; then
+  echo "Installing Moom..."
   brew cask install moom
 fi
 
 # install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
 if [ ! -d "/Applications/The Unarchiver.app" ]; then
+  echo "Installing The Unarchiver..."
   brew cask install the-unarchiver
 fi
 
 # install [nvalt](http://brettterpstra.com/projects/nvalt/)
 if [ ! -d /Applications/nvALT.app ]; then
+  echo "Installing nvALT..."
   brew cask install nvalt
 fi
 
 # install [spotify](https://spotify.com/)
 if [ ! -d /Applications/Spotify.app ]; then
+  echo "Installing Spotify..."
   brew cask install spotify
 fi
 
 # install [omniplan](https://www.omnigroup.com/omniplan)
 if [ ! -d /Applications/OmniPlan.app ]; then
+  echo "Installing OmniPlan..."
   brew cask install omniplan
 fi
 
 # install [omnigraffle](https://omnigraffle.com/)
 if [ ! -d /Applications/OmniGraffle.app ]; then
+  echo "Installing OmniGraffle..."
   brew cask install omnigraffle
 fi
 
 # install [chrome](https://www.google.com/chrome/browser/desktop/index.html)
 if [ ! -d "/Applications/Google Chrome.app" ]; then
+  echo "Installing Google Chrome..."
   brew cask install google-chrome
 fi
 
 # install [firefox](https://www.mozilla.org/firefox/)
 if [ ! -d /Applications/Firefox.app ]; then
+  echo "Installing Firefox..."
   brew cask install firefox
 fi
 
 # install [papers](http://papersapp.com/)
 if [ ! -d /Applications/Papers.app ]; then
+  echo "Installing Papers.app..."
   brew cask install papers
 fi
 
 # install [dash](https://kapeli.com/dash)
 if [ ! -d /Applications/Dash.app ]; then
+  echo "Installing Dash..."
   brew cask install dash
 fi
 
@@ -237,7 +260,9 @@ fi
 
 # install [antigen](http://antigen.sharats.me/) zsh plugin manager
 if [ ! -d $HOME/.zsh-antigen ]; then
-  git clone https://github.com/zsh-users/antigen.git $HOME/.zsh-antigen
+  echo "Installing antigen..."
+  brew install antigen
+  source /usr/local/share/antigen/antigen.zsh
 fi
 
 # Install [qfc](https://github.com/pindexis/qfc) file completion
@@ -332,11 +357,6 @@ if [ ! -e /usr/local/bin/node ]; then
   brew install node
 fi
 
-if [ ! -d /usr/local/lib/node_modules/http-server ]; then
-  echo "Installing http-server..."
-  npm install -g http-server
-fi
-
 ## RUBY ##
 
 # install [i2cssh](https://github.com/wouterdebie/i2cssh)
@@ -354,21 +374,20 @@ fi
 
 ## DEVOPS TOOLS ##
 
-# install [vagrant](https://www.vagrantup.com/)
-if [ ! -x /usr/local/bin/vagrant ]; then
-  brew cask install vagrant
+# install [packer](https://www.packer.io/)
+if [ ! -e /usr/local/bin/packer ]; then
+  echo "Installing packer..."
+  brew install packer
 fi
 
 # install [docker](https://www.docker.com/)
 if [ ! -e /Applications/Docker.app ]; then
   echo "Installing docker..."
-  brew cask install docker
-fi
-
-# install [packer](https://www.packer.io/)
-if [ ! -e /usr/local/bin/packer ]; then
-  echo "Installing packer..."
-  brew install packer
+  curl -o /tmp/Docker.dmg https://download.docker.com/mac/stable/Docker.dmg
+  open /tmp/Docker.dmg
+  mv /Volumes/Docker/Docker.app /Applications/
+  diskutil unmount /Volumes/Docker
+  open /Applications/Docker.app
 fi
 
 
@@ -380,10 +399,10 @@ if [ ! -e /usr/local/bin/elasticsearch ]; then
   brew install elasticsearch
 fi
 
-# install elasticsearch
-if [ ! -e /usr/local/bin/elasticsearch ]; then
-  echo "Installing elasticsearch..."
-  brew install elasticsearch
+# install kibana
+if [ ! -e /usr/local/bin/kibana ]; then
+  echo "Installing kibana..."
+  brew install kibana
 fi
 
 # install gnatsd
@@ -799,3 +818,4 @@ cd $CWD
 
 echo "Install Mac Apps (Pages, Numbers, and Keynote) via the App Store."
 echo "Install Marked, Pocket, Screeny, and IA Writer via the App Store."
+echo "Install Capto from http://captoformac.com/"

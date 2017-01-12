@@ -8,7 +8,7 @@
   br = branch
   rmd = !"git ls-files --deleted | while read FILE; do git rm \"$FILE\"; done"
   l = log --graph --all --pretty=format:'%C(yellow)%h%C(cyan)%d%Creset %s %C(white)- %an, %ar%Creset'
-  ll = log --stat --abbrev-commit
+	ll = log --stat --abbrev-commit
   alias = !git config --list | grep 'alias\\.' | sed 's/alias\\.\\([^=]*\\)=\\(.*\\)/\\1\\\t => \\2/' | sort
 [color]
   ui = auto
@@ -39,6 +39,13 @@
   windowMemory = 12m
   packSizeLimit = 24m
 [push]
-  default = simple
+	default = simple
 [url "https://"]
-  insteadOf = git://
+	insteadOf = git://
+[user]
+	email = jgoodall@ornl.gov
+	name = John Goodall
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	required = true
