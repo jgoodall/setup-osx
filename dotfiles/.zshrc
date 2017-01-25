@@ -225,3 +225,17 @@ fi
 alias check_updates="softwareupdate --list && brew update > /dev/null && brew outdated && npm outdated -g && binstale | grep 'stale: '"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+if [ -x /usr/local/bin/kafka-server-start ]; then
+  alias kafka-start="zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties"
+  alias kafka-delete="rm -rf /usr/local/var/lib/kafka-logs/*"
+  alias kafka-topic-list="kafka-topics --list --zookeeper ${kafkahost:-localhost}:2181"
+fi
+
+if [ -x /usr/local/bin/elasticsearch ]; then
+  alias es-start="elasticsearch"
+  alias es-delete="rm -rf /usr/local/var/elasticsearch/*"
+  alias es-health="curl -s ${eshost:-localhost}:9200/_cat/health\?v\&h=cluster,st,sh,pri,unassign"
+  alias es-indices="curl -s ${eshost:-localhost}:9200/_cat/indices\?v\&h=index,health,status,pri,rep,count,docsCount,storeSize"
+  alias es-threadpool="curl -s ${eshost:-localhost}:9200/_cat/thread_pool\?v"
+fi
