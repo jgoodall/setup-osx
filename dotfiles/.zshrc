@@ -227,7 +227,8 @@ alias check_updates="softwareupdate --list && brew update > /dev/null && brew ou
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 if [ -x /usr/local/bin/kafka-server-start ]; then
-  alias kafka-start="zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties"
+  alias kafka-start="zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties & kafka-server-start /usr/local/etc/kafka/server.properties &"
+  alias kafka-stop="kafka-server-stop && zookeeper-server-stop"
   alias kafka-delete="rm -rf /usr/local/var/lib/kafka-logs/*"
   alias kafka-topic-list="kafka-topics --list --zookeeper ${kafkahost:-localhost}:2181"
 fi
