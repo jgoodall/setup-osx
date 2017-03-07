@@ -497,18 +497,7 @@ cd $CWD
 
 
 #################################################################
-# Binaries in bin will be copied to $HOME/bin
-#################################################################
-
-if [ ! -d $HOME/bin ]; then
-  mkdir $HOME/bin
-fi
-cp -f $CWD/bin/* $HOME/bin/
-
-
-#################################################################
 # Set up OS X defaults
-# Many of these come from: http://mths.be/dotfiles
 #################################################################
 
 echo "Setting up system defaults..."
@@ -516,88 +505,101 @@ echo "Setting up system defaults..."
 # be quiet on login
 touch ~/.hushlogin
 
-#################################################################
-# General UI/UX                                                 #
-#################################################################
+echo "Disable Spotlight indexing for any volume that gets mounted and has not yet been indexed before."
+defaults write /.Spotlight-V100/VolumeConfiguration Exclusions -array "/Volumes"
 
-# Menu bar: disable transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+echo "Menu bar: disable transparency"
+defaults write com.apple.universalaccess reduceTransparency -bool true
 
-# Menu bar: hide the useless Time Machine and Volume icons
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+echo "Hide Time Machine, Volume, User menu icons"
+for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+  defaults write "${domain}" dontAutoLoad -array \
+    "/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+    "/System/Library/CoreServices/Menu Extras/Volume.menu" \
+    "/System/Library/CoreServices/Menu Extras/User.menu"
+done
 
-# Always show scrollbars
+echo "Hide battery and clock menu icons"
+defaults write com.apple.systemuiserver menuExtras -array  "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+echo "Always show scrollbars"
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
 
-# Increase window resize speed for Cocoa applications
+echo "Increase window resize speed for Cocoa applications"
 defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
 
-# Expand save panel by default
+echo "Expanding the save panel by default"
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-
-# Expand print panel by default
 defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -bool true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint2 -bool true
 
-# Automatically quit printer app once the print jobs complete
+echo "Automatically quit printer app once the print jobs complete"
 defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 
-# Disable the “Are you sure you want to open this application?” dialog
+echo "Check for software updates daily, not just once per week"
+defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
+
+echo "Disable smart quotes and smart dashes? (y/n)"
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+echo "Disable Photos.app from starting everytime a device is plugged in"
+defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
+
+echo "Removing duplicates in the 'Open With' menu"
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user
+
+echo "Disable the “Are you sure you want to open this application?” dialog"
 defaults write com.apple.LaunchServices LSQuarantine -bool false
 
-# Set Help Viewer windows to non-floating mode
+echo "Set Help Viewer windows to non-floating mode"
 defaults write com.apple.helpviewer DevMode -bool true
 
-# Check for software updates daily, not just once per week
-defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
 #################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input   #
 #################################################################
 
-# Trackpad: enable tap to click for this user and for the login screen
+echo "Enabling tap to click for this user and for the login screen"
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
-# Enable full keyboard access for all controls
-# (e.g. enable Tab in modal dialogs)
+echo "Enabling full keyboard access for all controls (enable Tab in modal dialogs, menu windows, etc.)"
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Enable access for assistive devices
-echo 'Requesting password to enable access for assistive devices'
-echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
-sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
-
-# Disable press-and-hold for keys in favor of key repeat
+echo "Disabling press-and-hold for special keys in favor of key repeat"
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
-# Set a blazingly fast keyboard repeat rate
+echo "Setting a blazingly fast keyboard repeat rate"
 defaults write NSGlobalDomain KeyRepeat -int 0
 
-# Automatically illuminate built-in MacBook keyboard in low light
-defaults write com.apple.BezelServices kDim -bool true
-# Turn off keyboard illumination when computer is not used for 5 minutes
+echo "Setting trackpad & mouse speed to a reasonable number"
+defaults write -g com.apple.trackpad.scaling 2
+defaults write -g com.apple.mouse.scaling 2.5
+
+echo "Turn off keyboard illumination when computer is not used for 5 minutes"
 defaults write com.apple.BezelServices kDimTime -int 300
+
+echo "Increasing sound quality for Bluetooth headphones/headsets"
+defaults write com.apple.BluetoothAudioAgent "Apple Bitpool Min (editable)" -int 40
 
 
 #################################################################
 # Screen                                                        #
 #################################################################
 
-# Require password immediately after sleep or screen saver begins
+echo "Require password immediately after sleep or screen saver begins"
 defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
-# Save screenshots to the desktop
+echo "Save screenshots to the desktop"
 defaults write com.apple.screencapture location -string "$HOME/Desktop"
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+echo "Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)"
 defaults write com.apple.screencapture type -string "png"
 
-# Disable shadow in screenshots
-defaults write com.apple.screencapture disable-shadow -bool true
-
-# Enable subpixel font rendering on non-Apple LCDs
+echo "Enabling subpixel font rendering on non-Apple LCDs"
 defaults write NSGlobalDomain AppleFontSmoothing -int 2
 
 
@@ -807,6 +809,17 @@ for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
   killall "$app" > /dev/null 2>&1
 done
 
+# Enable access for assistive devices
+echo 'Requesting password to enable access for assistive devices'
+echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
+sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
+
+echo "Disable Spotlight on backup drive"
+sudo mdutil -i off "/Volumes/mybook"
+
+echo "Speeding up wake from sleep to 24 hours from an hour"
+# http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
+sudo pmset -a standbydelay 86400
 
 cd $CWD
 
