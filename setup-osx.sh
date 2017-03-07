@@ -237,6 +237,12 @@ if [ ! -e /usr/local/bin/jq ]; then
   brew install jq
 fi
 
+# install [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy/)
+if [ ! -e /usr/local/bin/diff-so-fancy ]; then
+  echo "Installing diff-so-fancy..."
+  brew install diff-so-fancy
+fi
+
 # install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 if [ ! -d $HOME/.oh-my-zsh ]; then
   echo "Installing oh-my-zsh..."
