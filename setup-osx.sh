@@ -143,12 +143,6 @@ if [ ! -d "/Applications/The Unarchiver.app" ]; then
   brew cask install the-unarchiver
 fi
 
-# install [nvalt](http://brettterpstra.com/projects/nvalt/)
-if [ ! -d /Applications/nvALT.app ]; then
-  echo "Installing nvALT..."
-  brew cask install nvalt
-fi
-
 # install [spotify](https://spotify.com/)
 if [ ! -d /Applications/Spotify.app ]; then
   echo "Installing Spotify..."
