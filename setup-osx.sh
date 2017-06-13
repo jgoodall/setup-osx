@@ -472,7 +472,7 @@ cd $LIB/Colors && curl -O --silent --location https://github.com/altercation/sol
 
 # quicklook
 echo "Installing QuickLook plugins..."
-brew cask install qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql
+brew cask install qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql ttscoff-mmd-quicklook
 qlmanage -r
 
 # services
