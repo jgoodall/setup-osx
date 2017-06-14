@@ -487,6 +487,7 @@ cp -rf $CWD/mac/Services/* $LIB/Services/
 
 echo "Installing Fonts..."
 cd $LIB/Fonts
+\curl -OL https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip && unzip -o FiraCode_1.204.zip "ttf/*ttf" && mv ttf/* . && rm FiraCode_1.204.zip && rmdir ttf
 \curl -OL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -o Anonymous-Pro && rm Anonymous-Pro
 \curl -OL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -o Inconsolata && rm Inconsolata
 \curl -OL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -o source-code-pro && rm source-code-pro
