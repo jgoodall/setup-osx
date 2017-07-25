@@ -337,6 +337,11 @@ fi
 
 ## RUBY ##
 
+# install [ruby](https://www.ruby-lang.org/en/)
+if [ ! -e /usr/local/bin/ruby ]; then
+  brew install ruby
+fi
+
 # install [i2cssh](https://github.com/wouterdebie/i2cssh)
 which i2cssh > /dev/null
 if [ $? -eq 1 ]; then
