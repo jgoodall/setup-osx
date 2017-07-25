@@ -13,7 +13,8 @@ fi
 
 # check that [brew](http://mxcl.github.com/homebrew/) is installed.
 if [ ! -e /usr/local/bin/brew ]; then
-  echo "Instal homebrew first:  ruby -e \"$(curl -fsSkL raw.github.com/mxcl/homebrew/go)\""
+  echo "Instal homebrew first:"
+  echo "/usr/bin/ruby -e \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
   exit 1
 fi
 
