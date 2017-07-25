@@ -431,7 +431,7 @@ fi
 #################################################################
 
 echo "Copying dot files..."
-for i in `ls -Ad dotfiles/.[A-Za-z]*` ; do
+for i in `command ls -Ad dotfiles/.[A-Za-z]*` ; do
   cp -f $i $HOME
 done
 
