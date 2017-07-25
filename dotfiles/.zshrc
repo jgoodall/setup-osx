@@ -52,7 +52,10 @@ antigen bundle unixorn/autoupdate-antigen.zshplugin
 antigen apply
 
 CASE_SENSITIVE="false"
+HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
+
+export UPDATE_ZSH_DAYS=7
 
 # https://github.com/zsh-users/zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
