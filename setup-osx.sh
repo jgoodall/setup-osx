@@ -491,7 +491,7 @@ cd $LIB/Fonts
 if [ ! -f FiraCode-Regular.ttf ]; then
   command curl -sOL https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip && unzip -o FiraCode_1.204.zip "ttf/*ttf" && mv ttf/* . && rm FiraCode_1.204.zip && rmdir ttf
 fi
-if [ ! -f "Anonymous Pro.ttf" ]; then
+if [ ! -f Anonymous_Pro.ttf ]; then
   command curl -sOL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -o Anonymous-Pro && rm Anonymous-Pro
 fi
 if [ ! -f Inconsolata.otf ]; then
