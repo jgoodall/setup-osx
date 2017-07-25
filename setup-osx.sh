@@ -390,7 +390,7 @@ if [ ! -e /usr/local/bin/gnatsd ]; then
 fi
 
 # install rabbitmq
-if [ ! -e /usr/local/bin/rabbitmq-server ]; then
+if [ ! -e /usr/local/sbin/rabbitmq-server ]; then
   echo "Installing rabbitmq..."
   brew install rabbitmq
 fi
