@@ -237,7 +237,7 @@ if [ ! -d $HOME/.oh-my-zsh ]; then
 fi
 
 # install [antigen](http://antigen.sharats.me/) zsh plugin manager
-if [ ! -d $HOME/.zsh-antigen ]; then
+if [ ! -f /usr/local/share/antigen/antigen.zsh ]; then
   echo "Installing antigen..."
   brew install antigen
   source /usr/local/share/antigen/antigen.zsh
