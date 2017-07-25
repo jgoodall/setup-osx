@@ -11,16 +11,16 @@ if [ ! -d /Applications/Xcode.app ]; then
   exit 1
 fi
 
+# check that [brew](http://mxcl.github.com/homebrew/) is installed.
+if [ ! -e /usr/local/bin/brew ]; then
+  echo "Instal homebrew first:  ruby -e \"$(curl -fsSkL raw.github.com/mxcl/homebrew/go)\""
+  exit 1
+fi
+
 
 #################################################################
 # Install tools
 #################################################################
-
-# install [brew](http://mxcl.github.com/homebrew/)
-if [ ! -e /usr/local/bin/brew ]; then
-  echo "Installing homebrew..."
-  ruby -e "$(curl -fsSkL raw.github.com/mxcl/homebrew/go)"
-fi
 
 # install [brew-cask](https://github.com/phinze/homebrew-cask)
 if [ ! -d /opt/homebrew-cask/Caskroom ]; then
