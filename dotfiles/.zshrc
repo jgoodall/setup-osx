@@ -164,11 +164,6 @@ if [[ `uname` = 'Darwin' ]]; then
   alias show="defaults write com.apple.Finder AppleShowAllFiles -bool true && killall Finder"
   alias hide="defaults write com.apple.Finder AppleShowAllFiles -bool false && killall Finder"
 
-  # Disable Spotlight
-  alias spotoff="sudo mdutil -a -i off"
-  # Enable Spotlight
-  alias spoton="sudo mdutil -a -i on"
-
   # Hide/show all desktop icons (useful when presenting)
   alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
   alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
