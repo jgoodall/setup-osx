@@ -103,12 +103,6 @@ if [ ! -d "/Applications/Google Drive.app" ]; then
   brew cask install google-drive
 fi
 
-# install [owncloud](https://owncloud.org/)
-if [ ! -d /Applications/owncloud.app ]; then
-  echo "Installing ownCloud..."
-  brew cask install owncloud
-fi
-
 # install [cloud](https://www.getcloudapp.com/)
 if [ ! -d /Applications/CloudApp.app ]; then
   echo "Installing CloudApp..."
