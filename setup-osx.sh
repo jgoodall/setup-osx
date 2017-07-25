@@ -169,6 +169,12 @@ if [ ! -d /Applications/Dash.app ]; then
   brew cask install dash
 fi
 
+# install [capto](http://www.globaldelight.com/capto/)
+if [ ! -d /Applications/Capto.app ]; then
+  echo "Installing Capto..."
+  brew cask install capto
+fi
+
 
 ## COMMAND LINE TOOLS ##
 
@@ -482,13 +488,25 @@ cp -rf $CWD/mac/Services/* $LIB/Services/
 
 echo "Installing Fonts..."
 cd $LIB/Fonts
-command curl -sOL https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip && unzip -o FiraCode_1.204.zip "ttf/*ttf" && mv ttf/* . && rm FiraCode_1.204.zip && rmdir ttf
-command curl -sOL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -o Anonymous-Pro && rm Anonymous-Pro
-command curl -sOL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -o Inconsolata && rm Inconsolata
-command curl -sOL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -o source-code-pro && rm source-code-pro
-command curl -sOL http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -o architects-daughter && rm architects-daughter
-command curl -sOL http://www.fontsquirrel.com/fonts/download/Daniel && unzip -o Daniel && rm Daniel
-rm -f *.txt ~/.Trash/
+if [ ! -f FiraCode-Regular.ttf ]; then
+  command curl -sOL https://github.com/tonsky/FiraCode/releases/download/1.204/FiraCode_1.204.zip && unzip -o FiraCode_1.204.zip "ttf/*ttf" && mv ttf/* . && rm FiraCode_1.204.zip && rmdir ttf
+fi
+if [ ! -f "Anonymous Pro.ttf" ]; then
+  command curl -sOL http://www.fontsquirrel.com/fonts/download/Anonymous-Pro && unzip -o Anonymous-Pro && rm Anonymous-Pro
+fi
+if [ ! -f Inconsolata.otf ]; then
+  command curl -sOL http://www.fontsquirrel.com/fonts/download/Inconsolata && unzip -o Inconsolata && rm Inconsolata
+fi
+if [ ! -f SourceCodePro-Regular.otf ]; then
+  command curl -sOL http://www.fontsquirrel.com/fonts/download/source-code-pro && unzip -o source-code-pro && rm source-code-pro
+fi
+if [ ! -f ArchitectsDaughter.ttf ]; then
+  command curl -sOL http://www.fontsquirrel.com/fonts/download/architects-daughter && unzip -o architects-daughter && rm architects-daughter
+fi
+if [ ! -f Daniel-Regular.otf ]; then
+  command curl -sOL http://www.fontsquirrel.com/fonts/download/Daniel && unzip -o Daniel && rm Daniel
+fi
+mv *.txt ~/.Trash/
 cd $CWD
 
 
@@ -535,7 +553,7 @@ defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
 echo "Check for software updates daily, not just once per week"
 defaults write com.apple.SoftwareUpdate ScheduleFrequency -int 1
 
-echo "Disable smart quotes and smart dashes? (y/n)"
+echo "Disable smart quotes and smart dashes?"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
@@ -819,6 +837,6 @@ sudo pmset -a standbydelay 86400
 
 cd $CWD
 
+echo ""
 echo "Install Mac Apps (Pages, Numbers, and Keynote) via the App Store."
 echo "Install Marked, Pocket, Screeny, and IA Writer via the App Store."
-echo "Install Capto from http://captoformac.com/"
