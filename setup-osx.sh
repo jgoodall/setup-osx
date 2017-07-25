@@ -258,7 +258,7 @@ if [ ! -e $HOME/.marker ]; then
 fi
 
 # install [z](https://github.com/rupa/z) directory tracking
-if [ ! -e /usr/local/bin/z ]; then
+if [ ! -e /usr/local/etc/profile.d/z.sh ]; then
   echo "Installing z..."
   brew install z
 fi
