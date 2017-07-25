@@ -97,16 +97,10 @@ if [ ! -d /Applications/Revisions.app ]; then
   brew cask install revisions
 fi
 
-# install [google drive](https://www.google.com/drive/)
-if [ ! -d "/Applications/Google Drive.app" ]; then
-  echo "Installing Google Drive..."
-  brew cask install google-drive
-fi
-
 # install [cloud](https://www.getcloudapp.com/)
 if [ ! -d /Applications/CloudApp.app ]; then
   echo "Installing CloudApp..."
-  brew cask install cloud
+  brew cask install cloudapp
 fi
 
 # install [ubersicht](http://tracesof.net/uebersicht/)
