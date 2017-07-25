@@ -425,6 +425,12 @@ if [ ! -e /usr/local/bin/kafka-server-start ]; then
   brew install kafka
 fi
 
+# install prometheus
+if [ ! -e /usr/local/bin/prometheus ]; then
+  echo "Installing prometheus..."
+  brew install prometheus
+fi
+
 
 #################################################################
 # Copy dot files/dirs from here into home directory
