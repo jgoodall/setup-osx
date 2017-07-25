@@ -1,6 +1,8 @@
 # Antigen
 source /usr/local/share/antigen/antigen.zsh
 
+. /usr/local/etc/profile.d/z.sh
+
 antigen use oh-my-zsh
 
 antigen theme ys
