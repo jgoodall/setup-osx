@@ -1,4 +1,5 @@
 # Antigen
+source /usr/local/share/antigen/antigen.zsh
 
 antigen use oh-my-zsh
 
@@ -96,15 +97,6 @@ if [[ `uname -s` == 'Darwin' ]]; then
 fi
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
-
-# load RVM
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
-export PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
-
-# if mactex is installed, add it to the path
-if [ -d /usr/local/texlive/2012/bin/universal-darwin ] ; then
-  export PATH=$PATH:/usr/local/texlive/2012/bin/universal-darwin
-fi
 
 # Don't clear the screen after quitting a manual page
 export MANPAGER="less -X"
