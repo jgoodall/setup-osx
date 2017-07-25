@@ -23,11 +23,6 @@ fi
 # Install tools
 #################################################################
 
-# install [brew-cask](https://github.com/phinze/homebrew-cask)
-if [ ! -d /opt/homebrew-cask/Caskroom ]; then
-  brew tap caskroom/cask
-fi
-
 ## SOURCE CODE CONTROL ##
 
 # install [git](http://git-scm.com/)
