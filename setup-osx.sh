@@ -368,7 +368,7 @@ if [ ! -e /Applications/Docker.app ]; then
   echo "Installing docker..."
   curl -o /tmp/Docker.dmg https://download.docker.com/mac/stable/Docker.dmg
   open /tmp/Docker.dmg
-  mv /Volumes/Docker/Docker.app /Applications/
+  cp /Volumes/Docker/Docker.app /Applications/
   diskutil unmount /Volumes/Docker
   open /Applications/Docker.app
 fi
