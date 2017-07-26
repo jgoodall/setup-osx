@@ -109,6 +109,12 @@ if [ ! -d /Applications/Übersicht.app ]; then
   brew cask install ubersicht
 fi
 
+# install [TypeIt4Me](http://www.ettoresoftware.com/mac-apps/typeit4me/)
+if [ ! -d /Applications/TypeIt4Me.app ]; then
+  echo "Installing TypeIt4Me..."
+  brew cask install typeit4me
+fi
+
 # install [go2shell](http://zipzapmac.com/Go2Shell)
 if [ ! -d /Applications/Go2Shell.app ]; then
   echo "Installing Go2Shell..."
