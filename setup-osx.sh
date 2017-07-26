@@ -175,6 +175,13 @@ if [ ! -d /Applications/Capto.app ]; then
   brew cask install capto
 fi
 
+# install [MeisterTask](https://www.meistertask.com/)
+if [ -d /Applications/MeisterTask.app ]; then
+  echo "Installing MeisterTask..."
+  curl -sL -o /tmp/MeisterTask.pkg https://www.meistertask.com/files/MeisterTask_osx.pkg
+  sudo /usr/sbin/installer -pkg /tmp/MeisterTask.pkg -target /
+fi
+
 
 ## COMMAND LINE TOOLS ##
 
