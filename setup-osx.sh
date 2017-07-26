@@ -210,6 +210,12 @@ if [ ! -e /usr/local/bin/armor ]; then
   brew install armor
 fi
 
+# install [shellcheck](https://github.com/koalaman/shellcheck)
+if [ ! -e /usr/local/bin/shellcheck ]; then
+  echo "Installing shellcheck..."
+  brew install shellcheck
+fi
+
 # install [fzf](https://github.com/junegunn/fzf) fuzzy search
 if [ ! -e /usr/local/bin/fzf ]; then
   echo "Installing fzf..."
