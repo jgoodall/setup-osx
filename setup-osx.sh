@@ -181,6 +181,12 @@ if [ ! -d /Applications/Capto.app ]; then
   brew cask install capto
 fi
 
+# install [iStat Menus](https://bjango.com/mac/istatmenus/)
+if [ ! -d /Applications/iStat Menus.app ]; then
+  echo "Installing iStat Menus..."
+  brew cask install istat-menus
+fi
+
 # install [MeisterTask](https://www.meistertask.com/)
 if [ -d /Applications/MeisterTask.app ]; then
   echo "Installing MeisterTask..."
