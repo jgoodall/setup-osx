@@ -232,3 +232,13 @@ if [ -x /usr/local/bin/elasticsearch ]; then
   alias es-indices="curl -s ${eshost:-localhost}:9200/_cat/indices\?v\&h=index,health,status,pri,rep,count,docsCount,storeSize"
   alias es-threadpool="curl -s ${eshost:-localhost}:9200/_cat/thread_pool\?v"
 fi
+
+if [ -x /usr/local/bin/docker ]; then
+  alias dps="docker ps"
+  alias ds="docker service "
+  alias dsls="docker service ls"
+  alias dsps="docker service ps "
+  alias dsrm="docker service rm "
+  alias dslog="docker service logs --no-trunc "
+  alias dnls="docker node ls"
+fi
