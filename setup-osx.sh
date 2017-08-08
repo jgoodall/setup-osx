@@ -455,6 +455,12 @@ if [ ! -e /usr/local/bin/kafka-server-start ]; then
   brew install kafka
 fi
 
+# install [kafkacat](https://github.com/edenhill/kafkacat)
+if [ ! -e /usr/local/bin/kafkacat ]; then
+  echo "Installing kafkacat..."
+  brew install kafkacat
+fi
+
 # install prometheus
 if [ ! -e /usr/local/bin/prometheus ]; then
   echo "Installing prometheus..."
