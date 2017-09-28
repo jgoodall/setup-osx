@@ -361,10 +361,6 @@ if [ ! -x $GOPATH/bin/gops ]; then
   echo "Installing gops..."
   go get github.com/google/gops
 fi
-if [ ! -x $GOPATH/bin/goprofui ]; then
-  echo "Installing goprofui..."
-  go get github.com/wirelessregistry/goprofui
-fi
 
 
 ## NODE.JS ##
