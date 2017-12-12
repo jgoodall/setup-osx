@@ -344,9 +344,9 @@ if [ ! -x $GOPATH/bin/modd ]; then
   echo "Installing modd tool..."
   go get github.com/cortesi/modd/cmd/modd
 fi
-if [ ! -x $GOPATH/bin/govendor ]; then
-  echo "Installing govendor..."
-  go get github.com/kardianos/govendor
+if [ ! -x $GOPATH/bin/csvtk ]; then
+  echo "Installing csvtk..."
+  go get github.com/shenwei356/csvtk/csvtk
 fi
 if [ ! -x $GOPATH/bin/expvarmon ]; then
   echo "Installing expvarmon..."
