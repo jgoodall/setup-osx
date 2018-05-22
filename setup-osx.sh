@@ -182,7 +182,7 @@ if [ ! -d /Applications/Capto.app ]; then
 fi
 
 # install [iStat Menus](https://bjango.com/mac/istatmenus/)
-if [ ! -d /Applications/iStat Menus.app ]; then
+if [ ! -d "/Applications/iStat Menus.app" ]; then
   echo "Installing iStat Menus..."
   brew cask install istat-menus
 fi
@@ -387,7 +387,7 @@ fi
 # install [jekyll](https://jekyllrb.com/)
 which jekyll > /dev/null
 if [ $? -eq 1 ]; then
-  gem install jekyll bundler
+  gem install jekyll
 fi
 
 
@@ -404,7 +404,7 @@ if [ ! -e /Applications/Docker.app ]; then
   echo "Installing docker..."
   curl -o /tmp/Docker.dmg https://download.docker.com/mac/stable/Docker.dmg
   open /tmp/Docker.dmg
-  cp /Volumes/Docker/Docker.app /Applications/
+  cp -r /Volumes/Docker/Docker.app /Applications/
   diskutil unmount /Volumes/Docker
   open /Applications/Docker.app
 fi
@@ -875,4 +875,5 @@ cd $CWD
 
 echo ""
 echo "Install Mac Apps (Pages, Numbers, and Keynote) via the App Store."
-echo "Install Marked, Pocket, Screeny, and IA Writer via the App Store."
+echo "Install Pocket, Trello, and IA Writer via the App Store."
+echo "Install Marked 2 and Capto from Dropbox."
