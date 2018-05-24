@@ -241,4 +241,6 @@ if [ -x /usr/local/bin/docker ]; then
   alias dsrm="docker service rm "
   alias dslog="docker service logs --no-trunc "
   alias dnls="docker node ls"
+  alias dstd="docker stack deploy "
+  alias dstrm="docker stack rm "
 fi
