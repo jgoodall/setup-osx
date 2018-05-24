@@ -39,8 +39,6 @@ antigen bundle npm
 antigen bundle vagrant
 antigen bundle docker
 
-antigen apply
-
 if [[ `uname -s` == 'Darwin' ]]; then
     antigen bundle brew
     antigen bundle brew-cask
