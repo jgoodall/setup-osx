@@ -878,6 +878,7 @@ sudo pmset -a standbydelay 86400
 cd $CWD
 
 echo ""
-echo "Install Mac Apps (Pages, Numbers, and Keynote) via the App Store."
+echo "Install Apple Apps (Pages, Numbers, and Keynote) via the App Store."
 echo "Install Pocket, Trello, and IA Writer via the App Store."
+echo "Install Google Chrome Canary from https://www.google.com/chrome/browser/canary.html."
 echo "Install Marked 2 and Capto from Dropbox."
