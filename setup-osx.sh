@@ -329,6 +329,13 @@ if [ ! -x $GOPATH/bin/realize ]; then
   echo "Installing realize build server..."
   go get github.com/tockins/realize
 fi
+if [ ! -x $GOPATH/bin/mage ]; then
+  echo "Installing mage..."
+  go get -u -d github.com/magefile/mage
+  cd $GOPATH/src/github.com/magefile/mage
+  go run bootstrap.go
+  cd -
+fi
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
