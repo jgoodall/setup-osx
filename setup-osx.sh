@@ -370,6 +370,10 @@ if [ ! -e /usr/local/bin/node ]; then
   echo "Installing node.js..."
   brew install node
 fi
+if [ ! -e /usr/local/bin/yarn ]; then
+  echo "Installing yarn..."
+  brew install yarn
+fi
 
 ## RUBY ##
 
