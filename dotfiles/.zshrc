@@ -90,9 +90,6 @@ qfc_complete_SHORTCUT="\C-d"
 # Colors!
 export TERM="xterm-256color"
 
-# used by [atlas](https://atlas.hashicorp.com/)
-export ATLAS_TOKEN=""
-
 # for stupid Java
 if [[ `uname -s` == 'Darwin' ]]; then
   export JAVA_HOME=`/usr/libexec/java_home`
