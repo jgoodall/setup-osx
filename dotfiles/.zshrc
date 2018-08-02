@@ -111,8 +111,11 @@ else
   export PATH=$PATH:/usr/local/go/bin
 fi
 
+# Development directory
+export DEV=$HOME/ornldev/code
+
 # Default Go path
-export GOPATH=~/dev/go
+export GOPATH=$DEV/go
 
 # For Go binaries
 export PATH=$PATH:$GOPATH/bin
