@@ -22,21 +22,13 @@ antigen bundle command-not-found
 antigen bundle colored-man-pages
 antigen bundle colorize
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-
 antigen bundle rimraf/k
 antigen bundle uvaes/fzf-marks
 
 antigen bundle git
 antigen bundle git-extras
 antigen bundle github
-
 antigen bundle go
-antigen bundle node
-antigen bundle npm
-
-antigen bundle vagrant
 antigen bundle docker
 
 if [[ `uname -s` == 'Darwin' ]]; then
@@ -44,6 +36,9 @@ if [[ `uname -s` == 'Darwin' ]]; then
     antigen bundle brew-cask
     antigen bundle osx
 fi
+
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-history-substring-search
 
 antigen bundle unixorn/autoupdate-antigen.zshplugin
 
