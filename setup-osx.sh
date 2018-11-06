@@ -251,20 +251,10 @@ if [ ! -e /usr/local/bin/diff-so-fancy ]; then
   brew install diff-so-fancy
 fi
 
-# install [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-if [ ! -d $HOME/.oh-my-zsh ]; then
-  echo "Installing oh-my-zsh..."
-  curl -L http://install.ohmyz.sh | sh
-  cd $HOME/.oh-my-zsh/custom/plugins
-  git clone git://github.com/zsh-users/zsh-syntax-highlighting.git
-  git clone git://github.com/zsh-users/zsh-history-substring-search.git
-fi
-
-# install [antigen](http://antigen.sharats.me/) zsh plugin manager
-if [ ! -f /usr/local/share/antigen/antigen.zsh ]; then
-  echo "Installing antigen..."
-  brew install antigen
-  source /usr/local/share/antigen/antigen.zsh
+# install [antibody](https://getantibody.github.io/) zsh plugin manager
+if [ ! -e /usr/local/bin/antibody ]; then
+  echo "Installing antibody..."
+  brew install antibody
 fi
 
 # Install [qfc](https://github.com/pindexis/qfc) file completion
