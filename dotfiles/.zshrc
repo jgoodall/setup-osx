@@ -1,54 +1,18 @@
-# Antigen
-source /usr/local/share/antigen/antigen.zsh
+# antibody
+source <(antibody init)
 
-. /usr/local/etc/profile.d/z.sh
-
-antigen use oh-my-zsh
-
-antigen theme ys
-# antigen theme agnoster
-
-# source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
-
-# antigen bundle arialdomartini/oh-my-git
-# antigen theme arialdomartini/oh-my-git-themes oppa-lana-style
-
-# antigen theme https://github.com/jeremyFreeAgent/oh-my-zsh-powerline-theme.git powerline
-
-antigen bundle z
-antigen bundle cp
-antigen bundle history
-antigen bundle command-not-found
-antigen bundle colored-man-pages
-antigen bundle colorize
-
-antigen bundle rimraf/k
-antigen bundle uvaes/fzf-marks
-
-antigen bundle git
-antigen bundle git-extras
-antigen bundle github
-antigen bundle go
-antigen bundle docker
-
-if [[ `uname -s` == 'Darwin' ]]; then
-    antigen bundle brew
-    antigen bundle brew-cask
-    antigen bundle osx
-fi
-
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-history-substring-search
-
-antigen bundle unixorn/autoupdate-antigen.zshplugin
-
-antigen apply
-
+# Oh-My-Zsh
+ANTIBODY_HOME="$(antibody home)"
+export ZSH="$ANTIBODY_HOME"/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh
+ZSH_THEME=ys
+DISABLE_AUTO_UPDATE="true"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
 
-export UPDATE_ZSH_DAYS=7
+antibody bundle robbyrussell/oh-my-zsh
+antibody bundle < ~/.zsh_plugins.txt
+
 
 # https://github.com/zsh-users/zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
