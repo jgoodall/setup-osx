@@ -48,6 +48,8 @@ fi
 if [ ! -e /Applications/Atom.app ]; then
   echo "Installing atom..."
   brew cask install atom
+  npm -g install js-beautify
+  apm install atom-beautify
   apm install language-protobuf language-latex language-docker
   apm install linter linter-eslint linter-js-yaml linter-protocol-buffer linter-shellcheck linter-docker
   apm install go-plus
