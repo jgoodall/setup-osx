@@ -319,7 +319,7 @@ fi
 
 if [ ! -x $GOPATH/bin/realize ]; then
   echo "Installing realize build server..."
-  go get github.com/tockins/realize
+  go get github.com/oxequa/realize
 fi
 if [ ! -x $GOPATH/bin/mage ]; then
   echo "Installing mage..."
