@@ -4,17 +4,21 @@ iterm2: true
 profile: "Solarized Light"
 clusters:
   copsres:
-    columns: 5
+    columns: 6
     hosts:
       - copsres01
       - copsres02
       - copsres03
       - copsres04
       - copsres05
+      - copsres06
   cyberres:
-    columns: 3
+    columns: 6
     hosts:
       - cyberres1
       - cyberres2
       - cyberres3
+      - cyberres4
+      - cyberres5
+      - cyberres6
 
