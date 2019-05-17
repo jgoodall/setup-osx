@@ -73,11 +73,12 @@ fi
 # Development directory
 export DEV=$HOME/code
 
-# Default Go path
+# Default Go path/bin
 export GOPATH=$DEV/go
+export GOBIN=$GOPATH/bin
 
 # For Go binaries
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOBIN
 
 
 #######################################
