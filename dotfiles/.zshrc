@@ -71,7 +71,7 @@ else
 fi
 
 # Development directory
-export DEV=$HOME/ornldev/code
+export DEV=$HOME/code
 
 # Default Go path
 export GOPATH=$DEV/go
