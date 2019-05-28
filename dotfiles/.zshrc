@@ -156,23 +156,13 @@ if [ -x /usr/local/bin/brew ] ; then
   alias brewup="echo 'Upgrading brew formulae...\n' && brew update && brew upgrade"
 fi
 
-# alias for vagrant
-if [ -x /usr/bin/vagrant ] ; then
-  alias v="vagrant"
-  alias vst="vagrant status"
-  # alias for vagrant vmware provider
-  if [[ `vagrant plugin list | grep vagrant-vmware-fusion | cut -d' ' -f1` == "vagrant-vmware-fusion" ]]; then
-    export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
-  fi
-fi
-
 # [z](https://github.com/rupa/z) - jump around
 [ -f /usr/local/Cellar/z/1.9/etc/profile.d/z.sh ] && . /usr/local/Cellar/z/1.9/etc/profile.d/z.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # alias to check all updates
-alias check_updates="softwareupdate --list && brew update > /dev/null && brew outdated && npm outdated -g && binstale | grep 'stale: '"
+alias check_updates="softwareupdate --list && brew update > /dev/null && brew outdated"
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
