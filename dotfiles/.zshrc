@@ -180,3 +180,8 @@ if [ -x /usr/local/bin/elasticsearch ]; then
   alias es-indices="curl -s ${eshost:-localhost}:9200/_cat/indices\?v\&h=index,health,status,pri,rep,count,docsCount,storeSize"
   alias es-threadpool="curl -s ${eshost:-localhost}:9200/_cat/thread_pool\?v"
 fi
+
+if [ -x /usr/local/bin/go ]; then
+  alias go-mod-direct="go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all 2> /dev/null"
+  alias go-mod-outdated="go list -u -m -f '{{if .Update}}{{.}}{{end}}' all 2> /dev/null"
+fi
