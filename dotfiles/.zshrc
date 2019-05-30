@@ -182,6 +182,6 @@ if [ -x /usr/local/bin/elasticsearch ]; then
 fi
 
 if [ -x /usr/local/bin/go ]; then
-  alias go-mod-direct="go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all 2> /dev/null"
-  alias go-mod-outdated="go list -u -m -f '{{if .Update}}{{.}}{{end}}' all 2> /dev/null"
+  alias go-mod-list="go list -u -m -f '{{if not .Indirect}}{{.}}{{end}}' all 2> /dev/null"
+  alias go-mod-outdated="go list -u -m -f '{{if not .Indirect}}{{if .Update}}{{.}}{{end}}{{end}}' all 2> /dev/null"
 fi
