@@ -205,6 +205,13 @@ if [ ! -e /usr/local/bin/corkscrew ]; then
   brew install corkscrew
 fi
 
+# install [OpenSC](https://github.com/OpenSC/OpenSC) for smart card
+# readers.
+if [ ! -e /usr/local/bin/opensc-tool ]; then
+  echo "Installing opensc..."
+  brew install opensc
+fi
+
 # install [armor](https://armor.labstack.com/)
 if [ ! -e /usr/local/bin/armor ]; then
   echo "Installing armor..."
@@ -414,22 +421,18 @@ fi
 
 ## DEV DEPENDENCIES ##
 
-# install elasticsearch
+# install elasticsearch/kibana
 if [ ! -e /usr/local/bin/elasticsearch ]; then
-  echo "Installing elasticsearch..."
-  brew install elasticsearch
+  echo "Installing elasticsearch from official tap..."
+  brew tap elastic/tap
+  brew install elasticsearch-oss
+  brew install kibana-oss
 fi
 
-# install kibana
-if [ ! -e /usr/local/bin/kibana ]; then
-  echo "Installing kibana..."
-  brew install kibana
-fi
-
-# install gnatsd
-if [ ! -e /usr/local/bin/gnatsd ]; then
-  echo "Installing gnatsd..."
-  brew install gnatsd
+# install nats-server
+if [ ! -e /usr/local/bin/nats-server ]; then
+  echo "Installing nats-server..."
+  brew install nats-server
 fi
 
 # install redis
