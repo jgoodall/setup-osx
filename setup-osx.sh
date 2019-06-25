@@ -292,12 +292,6 @@ if [ ! -e /usr/local/bin/trash ]; then
   brew install trash
 fi
 
-# install [gRPCurl](https://github.com/fullstorydev/grpcurl)
-if [ ! -e /usr/local/bin/grpcurl ]; then
-  echo "Installing grpcurl..."
-  brew install grpcurl
-fi
-
 
 ## GOLANG ##
 
