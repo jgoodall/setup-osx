@@ -382,12 +382,6 @@ if [ $? -eq 1 ]; then
   gem install i2cssh
 fi
 
-# install [jekyll](https://jekyllrb.com/)
-which jekyll > /dev/null
-if [ $? -eq 1 ]; then
-  gem install jekyll
-fi
-
 
 ## DEVOPS TOOLS ##
 
