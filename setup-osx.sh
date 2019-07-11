@@ -194,9 +194,9 @@ fi
 
 # install [zsh](http://www.zsh.org/)
 if [ ! -e /usr/local/bin/zsh ]; then
-  echo "Installing zsh and setting to a default shell..."
+  echo "Installing zsh..."
   brew install zsh
-  chsh -s /usr/local/bin/zsh
+  echo "To use zsh, run the following:  sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh"
 fi
 
 # install [corkscrew](http://agroman.net/corkscrew/)
@@ -399,6 +399,10 @@ if [ ! -e /Applications/Docker.app ]; then
   cp -r /Volumes/Docker/Docker.app /Applications/
   diskutil unmount /Volumes/Docker
   open /Applications/Docker.app
+  # Set up autocompletion for zsh.
+  etc=/Applications/Docker.app/Contents/Resources/etc
+  ln -s $etc/docker.zsh-completion /usr/local/share/zsh/site-functions/_docker
+  ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
 fi
 
 
