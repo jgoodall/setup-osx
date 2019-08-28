@@ -44,17 +44,10 @@ fi
 
 ## APPLICATIONS ##
 
-# install [atom](https://atom.io/)
-if [ ! -e /Applications/Atom.app ]; then
-  echo "Installing atom..."
-  brew cask install atom
-  npm -g install js-beautify
-  apm install atom-beautify
-  apm install language-protobuf language-latex language-docker
-  apm install linter linter-eslint linter-js-yaml linter-protocol-buffer linter-shellcheck linter-docker
-  apm install go-plus
-  apm install react
-  apm install unity-ui nucleus-dark-ui
+# install [VS Code](https://code.visualstudio.com/)
+if [ ! -d "/Applications/Visual Studio Code.app" ]; then
+  echo "Installing VS Code..."
+  brew cask install visual-studio-code
 fi
 
 # install [iterm2](https://iterm2.com/)
