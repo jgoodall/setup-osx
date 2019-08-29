@@ -63,7 +63,7 @@ if [ ! -d "/Applications/1Password 7.app" ]; then
 fi
 
 # install [alfred](https://www.alfredapp.com/)
-if [ ! -d "/Applications/Alfred 3.app" ]; then
+if [ ! -d "/Applications/Alfred 4.app" ]; then
   echo "Installing alfred..."
   brew cask install alfred
 fi
