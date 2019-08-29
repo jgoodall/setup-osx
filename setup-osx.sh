@@ -374,9 +374,7 @@ fi
 if [ ! -e /Applications/Docker.app ]; then
   echo "Installing docker..."
   curl -o /tmp/Docker.dmg https://download.docker.com/mac/stable/Docker.dmg
-  open /tmp/Docker.dmg
-  cp -r /Volumes/Docker/Docker.app /Applications/
-  diskutil unmount /Volumes/Docker
+  open -W /tmp/Docker.dmg && cp -r /Volumes/Docker/Docker.app /Applications/ && diskutil unmount /Volumes/Docker
   open /Applications/Docker.app
   # Set up autocompletion for zsh.
   etc=/Applications/Docker.app/Contents/Resources/etc
