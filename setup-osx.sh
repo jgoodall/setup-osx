@@ -198,13 +198,6 @@ if [ ! -e /usr/local/bin/corkscrew ]; then
   brew install corkscrew
 fi
 
-# install [OpenSC](https://github.com/OpenSC/OpenSC) for smart card
-# readers.
-if [ ! -e /usr/local/bin/opensc-tool ]; then
-  echo "Installing opensc..."
-  brew install opensc
-fi
-
 # install [armor](https://armor.labstack.com/)
 if [ ! -e /usr/local/bin/armor ]; then
   echo "Installing armor..."
