@@ -57,7 +57,7 @@ if [ ! -d /Applications/iTerm.app ]; then
 fi
 
 # install [1password](https://1password.com/)
-if [ ! -d "/Applications/1Password 6.app" ]; then
+if [ ! -d "/Applications/1Password 7.app" ]; then
   echo "Installing 1Password..."
   brew cask install 1password
 fi
