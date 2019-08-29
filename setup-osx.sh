@@ -92,12 +92,6 @@ if [ ! -d /Applications/Revisions.app ]; then
   brew cask install revisions
 fi
 
-# install [cloud](https://www.getcloudapp.com/)
-if [ ! -d /Applications/CloudApp.app ]; then
-  echo "Installing CloudApp..."
-  brew cask install cloudapp
-fi
-
 # install [ubersicht](http://tracesof.net/uebersicht/)
 if [ ! -d /Applications/Übersicht.app ]; then
   echo "Installing Übersicht..."
@@ -830,6 +824,9 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 for app in Finder Dock Mail Safari iTunes SystemUIServer Twitter; do
   killall "$app" > /dev/null 2>&1
 done
+
+# Create directory for software development.
+mkdir -p $HOME/code
 
 # Enable access for assistive devices
 echo 'Requesting password to enable access for assistive devices'
