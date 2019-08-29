@@ -837,7 +837,7 @@ echo -n 'a' | sudo tee /private/var/db/.AccessibilityAPIEnabled > /dev/null 2>&1
 sudo chmod 444 /private/var/db/.AccessibilityAPIEnabled
 
 echo "Disable Spotlight on backup drive"
-sudo mdutil -i off "/Volumes/mybook"
+sudo mdutil -i off "/Volumes/TimeMachine"
 
 echo "Speeding up wake from sleep to 24 hours from an hour"
 # http://www.cultofmac.com/221392/quick-hack-speeds-up-retina-macbooks-wake-from-sleep-os-x-tips/
