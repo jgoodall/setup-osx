@@ -49,10 +49,9 @@ qfc_complete_SHORTCUT="\C-d"
 # Colors!
 export TERM="xterm-256color"
 
-# for stupid Java and ruby on mac
+# for ruby on mac
 if [[ `uname -s` == 'Darwin' ]]; then
-  export JAVA_HOME=`/usr/libexec/java_home`
-  export PATH=/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH:$JAVA_HOME/bin
+  export PATH=/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/2.6.0/bin:$PATH
 fi
 
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH
