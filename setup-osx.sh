@@ -28,7 +28,7 @@ fi
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
-  brew install git git-flow git-extras git-lfs
+  brew install git git-flow-avh git-extras git-lfs
 fi
 # install [hg](https://www.mercurial-scm.org/)
 if [ ! -e /usr/local/bin/hg ]; then
