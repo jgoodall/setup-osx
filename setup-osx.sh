@@ -309,10 +309,11 @@ if [ ! -x $GOPATH/bin/realize ]; then
 fi
 if [ ! -x $GOPATH/bin/mage ]; then
   echo "Installing mage..."
-  go get -u -d github.com/magefile/mage
-  cd $GOPATH/src/github.com/magefile/mage
+  pushd /tmp
+  git clone https://github.com/magefile/mage
+  cd mage
   go run bootstrap.go
-  cd -
+  popd
 fi
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
