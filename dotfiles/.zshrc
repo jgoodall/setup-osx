@@ -24,7 +24,7 @@ bindkey '^[[B' history-substring-search-down
 #
 #######################################
 
-export EDITOR="vim"
+export EDITOR="code"
 
 # [marker](https://github.com/pindexis/marker) terminal command palette
 # Ctrl-space: search for commands that match the current written string in the command-line
