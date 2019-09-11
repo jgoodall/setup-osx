@@ -75,6 +75,7 @@ export DEV=$HOME/code
 # Default Go path/bin
 export GOPATH=$DEV/go
 export GOBIN=$GOPATH/bin
+export GOPRIVATE=*.ornl.gov
 
 # For Go binaries
 export PATH=$PATH:$GOBIN
