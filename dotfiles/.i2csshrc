@@ -27,3 +27,11 @@ clusters:
       - foster
       - farva
       - rabbit
+  walliman:
+    columns: 4
+    hosts:
+      - walliman01
+      - walliman02
+      - walliman03
+      - walliman04
+
