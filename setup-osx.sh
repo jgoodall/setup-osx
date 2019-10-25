@@ -245,12 +245,6 @@ if [ ! -e /usr/local/bin/antibody ]; then
   brew install antibody
 fi
 
-# Install [qfc](https://github.com/pindexis/qfc) file completion
-if [ ! -e $HOME/.qfc ]; then
-  echo "Installing qfc..."
-  git clone https://github.com/pindexis/qfc $HOME/.qfc
-fi
-
 # Install [marker](https://github.com/pindexis/marker) command palette
 export MARKER_KEY_MARK='\C-0'
 if [ ! -e $HOME/.marker ]; then
