@@ -7,6 +7,8 @@ rupa/z
 # rimraf/k
 # uvaes/fzf-marks
 
+JoelWesleyReed/zsh-docker-aliases
+
 robbyrussell/oh-my-zsh path:plugins/colorize
 robbyrussell/oh-my-zsh path:plugins/colored-man-pages
 robbyrussell/oh-my-zsh path:plugins/history
