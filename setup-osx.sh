@@ -245,14 +245,6 @@ if [ ! -e /usr/local/bin/antibody ]; then
   brew install antibody
 fi
 
-# Install [marker](https://github.com/pindexis/marker) command palette
-export MARKER_KEY_MARK='\C-0'
-if [ ! -e $HOME/.marker ]; then
-  echo "Installing marker..."
-  git clone https://github.com/pindexis/marker $HOME/.marker
-  $HOME/.marker/install.py
-fi
-
 # install [z](https://github.com/rupa/z) directory tracking
 if [ ! -e /usr/local/etc/profile.d/z.sh ]; then
   echo "Installing z..."
