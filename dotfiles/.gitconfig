@@ -29,6 +29,8 @@
   untracked = cyan
 [branch]
   autosetupmerge = true
+[tag]
+  sort = version:refname
 [merge]
   tool = opendiff
 [help]
