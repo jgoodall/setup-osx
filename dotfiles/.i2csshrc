@@ -22,6 +22,7 @@ clusters:
       - cyberres6
   troopers:
     columns: 4
+    login: z09
     hosts:
       - thorny
       - foster
@@ -29,6 +30,7 @@ clusters:
       - rabbit
   walliman:
     columns: 4
+    login: z09
     hosts:
       - walliman01
       - walliman02
