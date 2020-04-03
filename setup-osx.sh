@@ -286,6 +286,10 @@ if [ ! -e /usr/local/bin/modd ]; then
   echo "Installing modd tool..."
   brew install modd
 fi
+if [ ! -x $GOPATH/bin/devd ]; then
+  echo "Installing devd webserver..."
+  go get github.com/cortesi/devd/cmd/devd
+fi
 
 if [ ! -x $GOPATH/bin/goimports ]; then
   echo "Installing goimports..."
@@ -308,10 +312,6 @@ if [ ! -x $GOPATH/bin/benchcmp ]; then
   go get golang.org/x/tools/cmd/benchcmp
 fi
 
-if [ ! -x $GOPATH/bin/devd ]; then
-  echo "Installing devd webserver..."
-  go get github.com/cortesi/devd/cmd/devd
-fi
 if [ ! -x $GOPATH/bin/csvtk ]; then
   echo "Installing csvtk..."
   go get github.com/shenwei356/csvtk/csvtk
