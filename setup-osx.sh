@@ -273,8 +273,14 @@ if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
   brew install go
 fi
-mkdir -p $HOME/dev/go
-export GOPATH=$HOME/dev/go
+mkdir -p $HOME/code/go
+export GOPATH=$HOME/code/go
+
+if [ ! -e /usr/local/bin/golangci-lint ]; then
+  echo "Installing golangci-lint..."
+  brew install golangci/tap/golangci-lint
+  brew upgrade golangci/tap/golangci-lint
+fi
 
 if [ ! -x $GOPATH/bin/goimports ]; then
   echo "Installing goimports..."
