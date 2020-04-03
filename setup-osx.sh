@@ -282,6 +282,11 @@ if [ ! -e /usr/local/bin/golangci-lint ]; then
   brew upgrade golangci/tap/golangci-lint
 fi
 
+if [ ! -e /usr/local/bin/modd ]; then
+  echo "Installing modd tool..."
+  brew install modd
+fi
+
 if [ ! -x $GOPATH/bin/goimports ]; then
   echo "Installing goimports..."
   go get golang.org/x/tools/cmd/goimports
@@ -310,10 +315,6 @@ fi
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
-fi
-if [ ! -x $GOPATH/bin/modd ]; then
-  echo "Installing modd tool..."
-  go get github.com/cortesi/modd/cmd/modd
 fi
 if [ ! -x $GOPATH/bin/csvtk ]; then
   echo "Installing csvtk..."
