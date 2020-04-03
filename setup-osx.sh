@@ -308,10 +308,6 @@ if [ ! -x $GOPATH/bin/benchcmp ]; then
   go get golang.org/x/tools/cmd/benchcmp
 fi
 
-if [ ! -x $GOPATH/bin/realize ]; then
-  echo "Installing realize build server..."
-  go get github.com/oxequa/realize
-fi
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
