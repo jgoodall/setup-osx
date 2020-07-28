@@ -375,26 +375,6 @@ fi
 
 ## DEV DEPENDENCIES ##
 
-# install elasticsearch/kibana
-if [ ! -e /usr/local/bin/elasticsearch ]; then
-  echo "Installing elasticsearch from official tap..."
-  brew tap elastic/tap
-  brew install elasticsearch-oss
-  brew install kibana-oss
-fi
-
-# install nats-server
-if [ ! -e /usr/local/bin/nats-server ]; then
-  echo "Installing nats-server..."
-  brew install nats-server
-fi
-
-# install redis
-if [ ! -e /usr/local/bin/redis-server ]; then
-  echo "Installing redis..."
-  brew install redis
-fi
-
 # install protobuf
 if [ ! -e /usr/local/bin/protoc ]; then
   echo "Installing protobuf..."
@@ -405,24 +385,6 @@ fi
 if [ ! -e /usr/local/bin/nanocat ]; then
   echo "Installing nanomsg..."
   brew install nanomsg
-fi
-
-# install kafka
-if [ ! -e /usr/local/bin/kafka-server-start ]; then
-  echo "Installing kafka..."
-  brew install kafka
-fi
-
-# install [kafkacat](https://github.com/edenhill/kafkacat)
-if [ ! -e /usr/local/bin/kafkacat ]; then
-  echo "Installing kafkacat..."
-  brew install kafkacat
-fi
-
-# install prometheus
-if [ ! -e /usr/local/bin/prometheus ]; then
-  echo "Installing prometheus..."
-  brew install prometheus
 fi
 
 
