@@ -1,0 +1,5 @@
+*.go    diff=golang
+*.css   diff=css
+*.html  diff=html
+*.xhtml diff=html
+*.md    diff=markdown
