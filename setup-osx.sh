@@ -68,6 +68,12 @@ if [ ! -d "/Applications/Alfred 4.app" ]; then
   brew cask install alfred
 fi
 
+# install [iina](https://iina.io/)
+if [ ! -d "/Applications/IINA.app" ]; then
+  echo "Installing iina..."
+  brew cask install iina
+fi
+
 # install [vmware](https://www.vmware.com/products/fusion.html)
 if [ ! -d "/Applications/VMware Fusion.app" ]; then
   echo "Installing vmware..."
