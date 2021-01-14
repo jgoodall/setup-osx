@@ -793,7 +793,7 @@ cd $CWD
 
 echo ""
 echo "Install Apple Apps (Pages, Numbers, and Keynote) via the App Store."
-echo "Install Pocket, Trello, and IA Writer via the App Store."
+echo "Install Things, Reeder, Pocket, Trello, and IA Writer via the App Store."
 echo "Install Google Chrome Canary from https://www.google.com/chrome/browser/canary.html."
 echo "Install Marked 2 from Dropbox."
 echo "To use zsh, run the following:  sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh"
