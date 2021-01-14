@@ -92,12 +92,6 @@ if [ ! -d /Applications/Dropbox.app ]; then
   brew cask install dropbox
 fi
 
-# install [revisions](https://revisionsapp.com/) - for dropbox
-if [ ! -d /Applications/Revisions.app ]; then
-  echo "Installing Revisions for Dropbox..."
-  brew cask install revisions
-fi
-
 # install [ubersicht](http://tracesof.net/uebersicht/)
 if [ ! -d /Applications/Übersicht.app ]; then
   echo "Installing Übersicht..."
@@ -134,12 +128,6 @@ if [ ! -d /Applications/Spotify.app ]; then
   brew cask install spotify
 fi
 
-# install [omniplan](https://www.omnigroup.com/omniplan)
-if [ ! -d /Applications/OmniPlan.app ]; then
-  echo "Installing OmniPlan..."
-  brew cask install omniplan
-fi
-
 # install [omnigraffle](https://omnigraffle.com/)
 if [ ! -d /Applications/OmniGraffle.app ]; then
   echo "Installing OmniGraffle..."
@@ -168,6 +156,12 @@ fi
 if [ ! -d /Applications/Dash.app ]; then
   echo "Installing Dash..."
   brew cask install dash
+fi
+
+# install [insomnia](https://insomnia.rest)
+if [ ! -d /Applications/Insomnia.app ]; then
+  echo "Installing Insomnia..."
+  brew cask install insomnia
 fi
 
 # install [capto](http://www.globaldelight.com/capto/)
