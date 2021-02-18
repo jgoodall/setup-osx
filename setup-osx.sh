@@ -281,7 +281,6 @@ if [ ! -e /usr/local/bin/golangci-lint ]; then
   brew install golangci/tap/golangci-lint
   brew upgrade golangci/tap/golangci-lint
 fi
-
 if [ ! -e /usr/local/bin/modd ]; then
   echo "Installing modd tool..."
   brew install modd
@@ -290,7 +289,6 @@ if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
   go get github.com/cortesi/devd/cmd/devd
 fi
-
 if [ ! -x $GOPATH/bin/goimports ]; then
   echo "Installing goimports..."
   go get golang.org/x/tools/cmd/goimports
@@ -299,27 +297,15 @@ if [ ! -x $GOPATH/bin/gotype ]; then
   echo "Installing gotype..."
   go get golang.org/x/tools/cmd/gotype
 fi
-if [ ! -x $GOPATH/bin/gorename ]; then
-  echo "Installing gorename..."
-  go get golang.org/x/tools/cmd/gorename
-fi
 if [ ! -x $GOPATH/bin/cover ]; then
   echo "Installing cover..."
   go get golang.org/x/tools/cmd/cover
 fi
-if [ ! -x $GOPATH/bin/benchcmp ]; then
-  echo "Installing benchcmp..."
-  go get golang.org/x/tools/cmd/benchcmp
-fi
-
 if [ ! -x $GOPATH/bin/csvtk ]; then
   echo "Installing csvtk..."
   go get github.com/shenwei356/csvtk/csvtk
 fi
-if [ ! -x $GOPATH/bin/expvarmon ]; then
-  echo "Installing expvarmon..."
-  go get github.com/divan/expvarmon
-fi
+
 if [ ! -x $GOPATH/bin/gops ]; then
   echo "Installing gops..."
   go get github.com/google/gops
