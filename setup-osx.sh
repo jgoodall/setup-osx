@@ -338,6 +338,7 @@ if [ ! -e /usr/local/bin/yarn ]; then
   brew install yarn
 fi
 
+
 ## RUBY ##
 
 # install [ruby](https://www.ruby-lang.org/en/)
@@ -353,12 +354,6 @@ fi
 
 
 ## DEVOPS TOOLS ##
-
-# install [packer](https://www.packer.io/)
-if [ ! -e /usr/local/bin/packer ]; then
-  echo "Installing packer..."
-  brew install packer
-fi
 
 # install [docker](https://www.docker.com/)
 if [ ! -e /Applications/Docker.app ]; then
