@@ -353,6 +353,24 @@ if [ ! -e /Applications/Docker.app ]; then
   ln -s $etc/docker-compose.zsh-completion /usr/local/share/zsh/site-functions/_docker-compose
 fi
 
+# install [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
+if [ ! -e /usr/local/bin/kubectl ]; then
+  echo "Installing kubectl..."
+  brew install kubectl
+fi
+
+# install [minikube](https://minikube.sigs.k8s.io/)
+if [ ! -e /usr/local/bin/minikube ]; then
+  echo "Installing minikube..."
+  brew install minikube
+  # Set up autocompletion for zsh.
+  brew install bash-completion
+  source $(brew --prefix)/etc/bash_completion
+  minikube completion zsh > ~/.minikube-completion
+  source ~/.minikube-completion
+fi
+
+
 
 ## DEV DEPENDENCIES ##
 

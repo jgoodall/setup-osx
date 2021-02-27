@@ -5,7 +5,7 @@ source <(antibody init)
 ANTIBODY_HOME="$(antibody home)"
 export ZSH="$ANTIBODY_HOME"/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh
 ZSH_THEME=ys
-DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="false"
 CASE_SENSITIVE="false"
 HYPHEN_INSENSITIVE="true"
 COMPLETION_WAITING_DOTS="true"
@@ -45,6 +45,8 @@ qfc_complete_SHORTCUT="\C-d"
   # ulimit -n 65536
   # ulimit -u 2048
 # fi
+
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Colors!
 export TERM="xterm-256color"
