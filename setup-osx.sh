@@ -7,14 +7,14 @@ APP_SUPPORT=$LIB/Application\ Support
 CWD=`pwd`
 
 if [ ! -d /Applications/Xcode.app ]; then
-  echo "Install Xcode from the App Store first."
+  echo "Install [Xcode](https://developer.apple.com/xcode/) from the App Store first."
   exit 1
 fi
 
 # check that [brew](http://mxcl.github.com/homebrew/) is installed.
 if [ ! -e /usr/local/bin/brew ]; then
-  echo "Instal homebrew first:"
-  echo "/usr/bin/ruby -e \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)\""
+  echo "Instal [homebrew](https://brew.sh/) first:"
+  echo "  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
   exit 1
 fi
 
