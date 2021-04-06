@@ -28,17 +28,17 @@ fi
 # install [git](http://git-scm.com/)
 if [ ! -e /usr/local/bin/git ]; then
   echo "Installing git..."
-  brew install git git-flow-avh git-extras git-lfs
+  brew install -q git git-flow-avh git-extras git-lfs
 fi
 # install [hg](https://www.mercurial-scm.org/)
 if [ ! -e /usr/local/bin/hg ]; then
   echo "Installing mercurial..."
-  brew install mercurial
+  brew install -q mercurial
 fi
 # install [bazaar](http://bazaar.canonical.com/en/)
 if [ ! -e /usr/local/bin/bzr ]; then
   echo "Installing bazaar..."
-  brew install bazaar
+  brew install -q bazaar
 fi
 
 
@@ -47,133 +47,133 @@ fi
 # install [VS Code](https://code.visualstudio.com/)
 if [ ! -d "/Applications/Visual Studio Code.app" ]; then
   echo "Installing VS Code..."
-  brew cask install visual-studio-code
+  brew install -q --cask visual-studio-code
 fi
 
 # install [iterm2](https://iterm2.com/)
 if [ ! -d /Applications/iTerm.app ]; then
   echo "Installing iTerm2..."
-  brew cask install iterm2
+  brew install -q --cask iterm2
 fi
 
 # install [1password](https://1password.com/)
 if [ ! -d "/Applications/1Password 7.app" ]; then
   echo "Installing 1Password..."
-  brew cask install 1password
+  brew install -q --cask 1password
 fi
 
 # install [alfred](https://www.alfredapp.com/)
 if [ ! -d "/Applications/Alfred 4.app" ]; then
   echo "Installing alfred..."
-  brew cask install alfred
+  brew install -q --cask alfred
 fi
 
 # install [iina](https://iina.io/)
 if [ ! -d "/Applications/IINA.app" ]; then
   echo "Installing iina..."
-  brew cask install iina
+  brew install -q --cask iina
 fi
 
 # install [vmware](https://www.vmware.com/products/fusion.html)
 if [ ! -d "/Applications/VMware Fusion.app" ]; then
   echo "Installing vmware..."
-  brew cask install vmware-fusion
+  brew install -q --cask vmware-fusion
 fi
 
 # install [slack](https://slack.com/)
 if [ ! -d /Applications/Slack.app ]; then
   echo "Installing Slack..."
-  brew cask install slack
+  brew install -q --cask slack
 fi
 
 # install [dropbox](https://dropbox.com/)
 if [ ! -d /Applications/Dropbox.app ]; then
   echo "Installing Dropbox..."
-  brew cask install dropbox
+  brew install -q --cask dropbox
 fi
 
 # install [ubersicht](http://tracesof.net/uebersicht/)
 if [ ! -d /Applications/Übersicht.app ]; then
   echo "Installing Übersicht..."
-  brew cask install ubersicht
+  brew install -q --cask ubersicht
 fi
 
 # install [TypeIt4Me](http://www.ettoresoftware.com/mac-apps/typeit4me/)
 if [ ! -d /Applications/TypeIt4Me.app ]; then
   echo "Installing TypeIt4Me..."
-  brew cask install typeit4me
+  brew install -q --cask typeit4me
 fi
 
 # install [go2shell](http://zipzapmac.com/Go2Shell)
 if [ ! -d /Applications/Go2Shell.app ]; then
   echo "Installing Go2Shell..."
-  brew cask install go2shell
+  brew install -q --cask go2shell
 fi
 
 # install [moom](https://manytricks.com/moom/)
 if [ ! -d /Applications/Moom.app ]; then
   echo "Installing Moom..."
-  brew cask install moom
+  brew install -q --cask moom
 fi
 
 # install [the unarchiver](http://unarchiver.c3.cx/unarchiver)
 if [ ! -d "/Applications/The Unarchiver.app" ]; then
   echo "Installing The Unarchiver..."
-  brew cask install the-unarchiver
+  brew install -q --cask the-unarchiver
 fi
 
 # install [spotify](https://spotify.com/)
 if [ ! -d /Applications/Spotify.app ]; then
   echo "Installing Spotify..."
-  brew cask install spotify
+  brew install -q --cask spotify
 fi
 
 # install [omnigraffle](https://omnigraffle.com/)
 if [ ! -d /Applications/OmniGraffle.app ]; then
   echo "Installing OmniGraffle..."
-  brew cask install omnigraffle
+  brew install -q --cask omnigraffle
 fi
 
 # install [chrome](https://www.google.com/chrome/browser/desktop/index.html)
 if [ ! -d "/Applications/Google Chrome.app" ]; then
   echo "Installing Google Chrome..."
-  brew cask install google-chrome
+  brew install -q --cask google-chrome
 fi
 
 # install [firefox](https://www.mozilla.org/firefox/)
 if [ ! -d /Applications/Firefox.app ]; then
   echo "Installing Firefox..."
-  brew cask install firefox
+  brew install -q --cask firefox
 fi
 
 # install [papers](http://papersapp.com/)
 if [ ! -d /Applications/Papers.app ]; then
   echo "Installing Papers.app..."
-  brew cask install papers
+  brew install -q --cask papers
 fi
 
 # install [dash](https://kapeli.com/dash)
 if [ ! -d /Applications/Dash.app ]; then
   echo "Installing Dash..."
-  brew cask install dash
+  brew install -q --cask dash
 fi
 
 # install [insomnia](https://insomnia.rest)
 if [ ! -d /Applications/Insomnia.app ]; then
   echo "Installing Insomnia..."
-  brew cask install insomnia
+  brew install -q --cask insomnia
 fi
 
 # install [capto](http://www.globaldelight.com/capto/)
 if [ ! -d /Applications/Capto.app ]; then
   echo "Installing Capto..."
-  brew cask install capto
+  brew install -q --cask capto
 fi
 
 # install [iStat Menus](https://bjango.com/mac/istatmenus/)
 if [ ! -d "/Applications/iStat Menus.app" ]; then
   echo "Installing iStat Menus..."
-  brew cask install istat-menus
+  brew install -q --cask istat-menus
 fi
 
 
@@ -182,67 +182,67 @@ fi
 # install [zsh](http://www.zsh.org/)
 if [ ! -e /usr/local/bin/zsh ]; then
   echo "Installing zsh..."
-  brew install zsh
+  brew install -q zsh
 fi
 
 # install [corkscrew](http://agroman.net/corkscrew/)
 if [ ! -e /usr/local/bin/corkscrew ]; then
   echo "Installing corkscrew..."
-  brew install corkscrew
+  brew install -q corkscrew
 fi
 
 # install [armor](https://armor.labstack.com/)
 if [ ! -e /usr/local/bin/armor ]; then
   echo "Installing armor..."
-  brew install armor
+  brew install -q armor
 fi
 
 # install [shellcheck](https://github.com/koalaman/shellcheck)
 if [ ! -e /usr/local/bin/shellcheck ]; then
   echo "Installing shellcheck..."
-  brew install shellcheck
+  brew install -q shellcheck
 fi
 
 # install [fzf](https://github.com/junegunn/fzf) fuzzy search
 if [ ! -e /usr/local/bin/fzf ]; then
   echo "Installing fzf..."
-  brew install fzf
+  brew install -q fzf
 fi
 
 # install [silver searcher](http://geoff.greer.fm/ag/) grep replacement
 if [ ! -e /usr/local/bin/ag ]; then
   echo "Installing ag..."
-  brew install the_silver_searcher
+  brew install -q the_silver_searcher
 fi
 
 # install [httpie](https://httpie.org/) curl replacement
 if [ ! -e /usr/local/bin/http ]; then
   echo "Installing httpie..."
-  brew install httpie
+  brew install -q httpie
 fi
 
 # install [htop](https://hisham.hm/htop/) top replacement
 if [ ! -e /usr/local/bin/htop ]; then
   echo "Installing htop..."
-  brew install htop
+  brew install -q htop
 fi
 
 # install [jq](https://stedolan.github.io/jq/)
 if [ ! -e /usr/local/bin/jq ]; then
   echo "Installing jq..."
-  brew install jq
+  brew install -q jq
 fi
 
 # install [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy/)
 if [ ! -e /usr/local/bin/diff-so-fancy ]; then
   echo "Installing diff-so-fancy..."
-  brew install diff-so-fancy
+  brew install -q diff-so-fancy
 fi
 
 # install [antibody](https://getantibody.github.io/) zsh plugin manager
 if [ ! -e /usr/local/bin/antibody ]; then
   echo "Installing antibody..."
-  brew install antibody
+  brew install -q antibody
 fi
 
 # Install [marker](https://github.com/pindexis/marker) command palette
@@ -256,13 +256,13 @@ fi
 # install [z](https://github.com/rupa/z) directory tracking
 if [ ! -e /usr/local/etc/profile.d/z.sh ]; then
   echo "Installing z..."
-  brew install z
+  brew install -q z
 fi
 
 # install [trash](http://hasseg.org/trash/) alternative to rm
 if [ ! -e /usr/local/bin/trash ]; then
   echo "Installing trash..."
-  brew install trash
+  brew install -q trash
 fi
 
 
@@ -271,19 +271,19 @@ fi
 # install [go](http://golang.org/)
 if [ ! -e /usr/local/bin/go ]; then
   echo "Installing go..."
-  brew install go
+  brew install -q go
 fi
 mkdir -p $HOME/code/go
 export GOPATH=$HOME/code/go
 
 if [ ! -e /usr/local/bin/golangci-lint ]; then
   echo "Installing golangci-lint..."
-  brew install golangci/tap/golangci-lint
+  brew install -q golangci/tap/golangci-lint
   brew upgrade golangci/tap/golangci-lint
 fi
 if [ ! -e /usr/local/bin/modd ]; then
   echo "Installing modd tool..."
-  brew install modd
+  brew install -q modd
 fi
 if [ ! -x $GOPATH/bin/devd ]; then
   echo "Installing devd webserver..."
@@ -317,11 +317,11 @@ fi
 # install [node](http://nodejs.org/)
 if [ ! -e /usr/local/bin/node ]; then
   echo "Installing node.js..."
-  brew install node
+  brew install -q node
 fi
 if [ ! -e /usr/local/bin/yarn ]; then
   echo "Installing yarn..."
-  brew install yarn
+  brew install -q yarn
 fi
 
 
@@ -329,7 +329,7 @@ fi
 
 # install [ruby](https://www.ruby-lang.org/en/)
 if [ ! -e /usr/local/bin/ruby ]; then
-  brew install ruby
+  brew install -q ruby
 fi
 
 # install [i2cssh](https://github.com/wouterdebie/i2cssh)
@@ -356,15 +356,15 @@ fi
 # install [kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
 if [ ! -e /usr/local/bin/kubectl ]; then
   echo "Installing kubectl..."
-  brew install kubectl
+  brew install -q kubectl
 fi
 
 # install [minikube](https://minikube.sigs.k8s.io/)
 if [ ! -e /usr/local/bin/minikube ]; then
   echo "Installing minikube..."
-  brew install minikube
+  brew install -q minikube
   # Set up autocompletion for zsh.
-  brew install bash-completion
+  brew install -q bash-completion
   source $(brew --prefix)/etc/bash_completion
   minikube completion zsh > ~/.minikube-completion
   source ~/.minikube-completion
@@ -377,13 +377,13 @@ fi
 # install protobuf
 if [ ! -e /usr/local/bin/protoc ]; then
   echo "Installing protobuf..."
-  brew install protobuf
+  brew install -q protobuf
 fi
 
 # install nanomsg
 if [ ! -e /usr/local/bin/nanocat ]; then
   echo "Installing nanomsg..."
-  brew install nanomsg
+  brew install -q nanomsg
 fi
 
 
@@ -423,7 +423,7 @@ cd $LIB/Colors && curl -O --silent --location https://github.com/altercation/sol
 
 # quicklook
 echo "Installing QuickLook plugins..."
-brew cask install qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql ttscoff-mmd-quicklook
+brew install -q --cask qlmarkdown qlstephen qlcolorcode quicklook-json quicklook-csv betterzipql ttscoff-mmd-quicklook
 qlmanage -r
 
 # services
