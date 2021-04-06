@@ -56,6 +56,12 @@ if [ ! -d /Applications/iTerm.app ]; then
   brew install -q --cask iterm2
 fi
 
+# install [Hey](https://hey.com/)
+if [ ! -d /Applications/HEY.app ]; then
+  echo "Installing Hey..."
+  brew install -q --cask hey
+fi
+
 # install [1password](https://1password.com/)
 if [ ! -d "/Applications/1Password 7.app" ]; then
   echo "Installing 1Password..."
