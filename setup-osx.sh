@@ -791,8 +791,10 @@ sudo pmset -a standbydelay 86400
 cd $CWD
 
 echo ""
-echo "Install Apple Apps (Pages, Numbers, and Keynote) via the App Store."
-echo "Install Things, Reeder, Pocket, Trello, and IA Writer via the App Store."
+echo "Start Dropbox first, then 1Password."
+echo "Install Things, Reeder, Pocket, and IA Writer via the App Store."
 echo "Install Google Chrome Canary from https://www.google.com/chrome/browser/canary.html."
 echo "Install Marked 2 from Dropbox."
+echo "Turn off Spotlight shortcuts in Keyboard preferences."
 echo "To use zsh, run the following:  sudo dscl . -create /Users/$USER UserShell /usr/local/bin/zsh"
+echo "Start Dropbox first to sync preferences..."
